@@ -19,9 +19,17 @@ class User(db.Model):
         return f"User('{self.id}', '{self.username}')"
 
 
+# Define route for the login page
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """Log user in"""
+    return render_template("login.html")
+
+
+
 @app.route("/")
-""" Home template running"""
 def home():
+    """Home template running"""
     return render_template("base.html")
 
 if __name__ == '__main__':

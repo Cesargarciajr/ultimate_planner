@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Log In{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center align-items-center mt-5">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm">
+                <div class="card-header text-center bg-dark text-white">
+                    <h4>Log In</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/login" method="post">
+                        <div class="mb-3">
+                            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+                        </div>
+                        <!-- Center the button -->
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-dark" type="submit">Log In</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p class="small">Don't have an account yet? <a href="/register">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
