@@ -1,11 +1,17 @@
-from flask import Flask, render_template, request, redirect, flash
+import os
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 
+if os.path.isfile("env.py"):
+    import env
 app = Flask(__name__)
 
 # Set the URI for your SQLite database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ultimate_planner.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, but recommended to disable
+app.secret_key = os.environ.get("SECRET_KEY")
+
 
 # Initialize SQLAlchemy
 db = SQLAlchemy(app)
