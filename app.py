@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import Flask
+from flask import Flask, render_template, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -20,9 +19,10 @@ class User(db.Model):
         return f"User('{self.id}', '{self.username}')"
 
 
-@app.route('/')
+@app.route("/")
+""" Home template running"""
 def home():
-    return "Hello, World!"
+    return render_template("base.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
