@@ -4,13 +4,35 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h2>Add a new Category</h2>
-    <form action="/add-category" method="POST">
-        <div class="mb-3">
-            <label for="category_name" class="form-label">Category Name</label>
-            <input type="text" class="form-control" id="category_name" name="category_name" required>
+    <!-- Form to add a new category -->
+    <h3 class="mt-4"><i class="fa-solid fa-circle-plus"></i> Add Category</h3>
+    <form method="POST" class="row g-3">
+        <div class="col-12 col-md-6">
+            <label for="category_name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Category Name (e.g Finance)" required>
         </div>
-        <button type="submit" class="btn btn-primary">Create Category</button>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Add Category</button>
+        </div>
     </form>
+    <br>
+    <!-- Display existing categories -->
+    <h3><i class="fa-solid fa-pen-to-square"></i> Edit Categories</h3>
+    {% if categories %}
+    <ul class="list-unstyled row">
+        {% for category in categories %}
+        <div class="col-12 col-md-6 col-lg-4">
+            <a class="btn btn-lg m-1 shadow-sm text-white text-center w-100" 
+               style="background-color: {{ category.color }}" 
+               href="{{ url_for('edit_category', category_id=category.id) }}">
+                <li>{{ category.name }}</li>
+            </a>  
+        </div>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No categories found. Add a new one above.</p>
+{% endif %}
+
 </div>
 {% endblock %}

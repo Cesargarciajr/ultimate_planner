@@ -1,39 +1,56 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}
+  Dashboard
+{% endblock %}
 
 {% block content %}
-<div class="container mt-5 d-flex justify-content-center">
-    <div class="text-center w-100">
-        <!-- Welcome Message -->
-        <h2 class="display-4 mb-4">Welcome, {{ username }}</h2>
-        <p class="mb-4 text-muted">Let's start making some plans!</p>
-        
-        <!-- Action Buttons Section: Stack on mobile and align horizontally on desktop -->
-        <div class="d-grid gap-3 gap-md-4 d-md-flex justify-content-md-center">
-            <a class="btn btn-primary btn-lg w-100 w-md-auto" href="/add-goal">
-                <i class="fa-solid fa-circle-plus"></i> Add Goal
-            </a>
-            <a class="btn btn-success btn-lg w-100 w-md-auto" href="/add-category">
-                <i class="fa-solid fa-circle-plus"></i> Add Category
-            </a>
-        </div>
-        
-        <!-- Steps Section - Using a Bootstrap Card -->
-        <div class="card m-5 shadow-sm justify-content-center">
-            <div class="card-body">
-                <h5 class="card-title">Steps to get started:</h5>
-                <ul class="text-muted">
-                    <li class="d-flex justify-content-center">
-                        1. Create a few categories (e.g., Finance)
-                    </li>
-                    <li class="d-flex justify-content-center">
-                        2. Create a few goals linking a category and timeslot to it (e.g., Save 300$)
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
+<div class="container mt-5">
+  <!-- Welcome Section -->
+  <div class="text-center mb-5">
+    <h2 class="display-4">Welcome, {{ username }}</h2>
+    <p class="lead text-muted">Let’s start making some plans!</p>
+  </div>
+
+  <!-- Action Buttons Section -->
+  <div class="d-grid gap-3 gap-md-4 d-md-flex justify-content-md-center mb-4">
+    <a class="btn btn-primary btn-lg px-4" href="/add-goal">
+      <i class="fa-solid fa-circle-plus"></i> Add Goal
+    </a>
+    <a class="btn btn-success btn-lg px-4" href="/add-category">
+      <i class="fa-solid fa-circle-plus"></i> Add Category
+    </a>
+  </div>
+
+  <!-- Steps Section -->
+  <div class="card mb-5 shadow-sm">
+    <div class="card-body text-center">
+      <h5 class="card-title mb-3">Steps to Get Started</h5>
+      <ul class="list-unstyled text-muted">
+        <li class="mb-2">1. Create a few categories (e.g., Finance).</li>
+        <li>2. Add goals linked to a category and timeslot (e.g., Save $300).</li>
+      </ul>
     </div>
+  </div>
+
+  <!-- Categories Section -->
+  <div>
+    <h3 class="mb-3">
+      <i class="fa-solid fa-list"></i> Categories
+    </h3>
+    {% if categories %}
+      <div class="row g-3">
+        {% for category in categories %}
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="p-3 text-center rounded shadow-sm" style="background-color: {{ category.color }}; color: #fff;">
+              {{ category.name }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-muted">No categories found. Add a new one above.</p>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}
