@@ -30,20 +30,17 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <!-- Conditionally show buttons based on login status -->
-                    {% if session.get('logged_in') %}
+                    {% if session.get('user_id') %}
                     <div class="col-auto m-1">
-                        <button class="btn btn-primary">
-                            <i class="fa-solid fa-circle-plus"></i> Add Goal
-                        </button>
-                        <button class="btn btn-success">
-                            <i class="fa-solid fa-circle-plus"></i> Add Category
-                        </button>
+                        <a class="btn btn-outline-light" href="/logout">
+                            <i class="fa-solid fa-sign-out-alt"></i> Logout
+                        </a>
                     </div>
                     {% else %}
                     <div class="col-auto m-1">
@@ -59,23 +56,22 @@
             </div>
         </div>
     </nav>
+    
+     <!-- Flash Messages -->
+     {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container mt-3">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
 
     {% block content %}
-    <!-- Display Flash Messages -->
-    <div class="container mt-4">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="alert-container">
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-                            {{ message }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
-    </div>
 
     {% endblock %}
 

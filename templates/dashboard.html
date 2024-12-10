@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="text-center w-100">
+        <!-- Welcome Message -->
+        <h2 class="display-4 mb-4">Welcome, {{ username }}</h2>
+        <p class="mb-4 text-muted">Let's start making some plans!</p>
+        
+        <!-- Action Buttons Section: Stack on mobile and align horizontally on desktop -->
+        <div class="d-grid gap-3 gap-md-4 d-md-flex justify-content-md-center">
+            <a class="btn btn-primary btn-lg w-100 w-md-auto" href="/add-goal">
+                <i class="fa-solid fa-circle-plus"></i> Add Goal
+            </a>
+            <a class="btn btn-success btn-lg w-100 w-md-auto" href="/add-category">
+                <i class="fa-solid fa-circle-plus"></i> Add Category
+            </a>
+        </div>
+        
+        <!-- Steps Section - Using a Bootstrap Card -->
+        <div class="card m-5 shadow-sm justify-content-center">
+            <div class="card-body">
+                <h5 class="card-title">Steps to get started:</h5>
+                <ul class="text-muted">
+                    <li class="d-flex justify-content-center">
+                        1. Create a few categories (e.g., Finance)
+                    </li>
+                    <li class="d-flex justify-content-center">
+                        2. Create a few goals linking a category and timeslot to it (e.g., Save 300$)
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
