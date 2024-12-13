@@ -117,9 +117,10 @@ def logout():
 
 # Define route for the home page
 @app.route("/")
-def home():
+def index():
     """Home template running"""
-    return render_template("base.html")
+    return render_template("index.html")
+
 
 @app.route('/add-category', methods=['GET', 'POST'])
 def add_category():

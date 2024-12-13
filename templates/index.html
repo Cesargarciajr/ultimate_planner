@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  About - The Ultimate Planner
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <!-- About Header Section -->
+  <div class="text-center mb-5">
+      <h1 class="display-4 fw-bold">The Ultimate Planner</h1>
+      <p class="lead text-muted">Your go-to tool for organizing your life and staying on track to achieve your goals!</p>
+  </div>
+
+  <!-- Centralized and Larger Button -->
+  <div class="text-center mb-5">
+      <a href="{% if session['user_id'] %}{{ url_for('dashboard') }}{% else %}{{ url_for('login') }}{% endif %}" 
+         class="btn btn-success btn-lg px-5 py-3">
+         Start Now!
+      </a>
+  </div>
+
+  <!-- Responsive Image -->
+  <div class="text-center mb-5">
+      <img src="/static/images/planner_about_page.png" alt="planner-img" class="img-fluid rounded shadow-sm" style="max-width: 50%; height: auto;">
+  </div>
+  
+    <!-- About Description -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 m-1">
+        <p><strong>Welcome to The Ultimate Planner</strong> – your essential tool for managing time and achieving dreams. Whether you're planning for a year, semester, trimester, or just the next month, we've got you covered!</p>
+        <p>Break down big goals, set milestones, and stay motivated with personalized categories and progress tracking. It's your all-in-one solution for personal growth, professional success, and life organization.</p>
+      </div>
+    </div>
+  </div>
+  
+
+    <!-- Key Features Section -->
+    <div class="row justify-content-center mt-5 m-1">
+      <div class="col-12 col-md-10">
+        <div class="card shadow-sm p-4">
+          <h3 class="mb-4 text-center">Key Features</h3>
+          <ul class="list-unstyled">
+            <li class="mb-3">
+              <i class="fas fa-check-circle text-success me-2"></i>
+              <strong>Yearly, Semester, Trimester, and Monthly Planning:</strong> Plan for any timeframe that suits your needs.
+            </li>
+            <li class="mb-3">
+              <i class="fas fa-check-circle text-success me-2"></i>
+              <strong>Goals & Categories:</strong> Add goals and organize them into categories such as Health, Finance, Career, and more.
+            </li>
+            <li class="mb-3">
+              <i class="fas fa-check-circle text-success me-2"></i>
+              <strong>Track Your Progress:</strong> Visualize your milestones and stay motivated.
+            </li>
+            <li class="mb-3">
+              <i class="fas fa-check-circle text-success me-2"></i>
+              <strong>Intuitive Interface:</strong> Manage your goals with ease using our user-friendly platform.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <div class="row justify-content-center mt-5 m-1">
+      <div class="col-12 col-md-10">
+        <div class="card shadow-sm p-4">
+          <h3 class="mb-4 text-center">Why Choose The Ultimate Planner?</h3>
+          <ul class="list-unstyled">
+            <li class="mb-3">
+              <i class="fas fa-thumbs-up text-primary me-2"></i>
+              <strong>Achieve More:</strong> Break down big goals into smaller steps to stay motivated.
+            </li>
+            <li class="mb-3">
+              <i class="fas fa-thumbs-up text-primary me-2"></i>
+              <strong>Stay Organized:</strong> Neatly categorize and track your goals with ease.
+            </li>
+            <li class="mb-3">
+              <i class="fas fa-thumbs-up text-primary me-2"></i>
+              <strong>Boost Productivity:</strong> Focus on what matters and accomplish more.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing Section -->
+    <div class="row justify-content-center mt-5 m-1">
+      <div class="col-12 col-md-8 text-center">
+        <h3>The Journey to Success Starts Here</h3>
+        <p>With <strong>The Ultimate Planner</strong>, you're in control of your future. Create, track, and achieve your goals effortlessly. Start planning today and take the first step toward achieving your dreams!</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
