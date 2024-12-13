@@ -22,35 +22,36 @@
     </a>
   </div>
 
-  <!-- Steps Section -->
-  <div class="card mb-5 shadow-sm">
-    <div class="card-body text-center">
-      <h5 class="card-title mb-3">Steps to Get Started</h5>
-      <ul class="list-unstyled text-muted">
-        <li class="mb-2">1. Create a few categories (e.g., Finance).</li>
-        <li>2. Add goals linked to a category and timeslot (e.g., Save $300).</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Categories Section -->
-  <div>
-    <h3 class="mb-3">
-      <i class="fa-solid fa-list"></i> Categories
-    </h3>
-    {% if categories %}
+  <!-- Planner Section -->
+  <div class="container my-5 p-4 custom-grey rounded shadow-sm">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 class="mb-3"><i class="fa-solid fa-list"></i> Year</h2>
+        </div>
+        {% if categories %}
       <div class="row g-3">
         {% for category in categories %}
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="p-3 text-center rounded shadow-sm" style="background-color: {{ category.color }}; color: #fff;">
+          <div class="col-12 col-md-6 col-lg-4 category-container">
+            <div class="p-3 text-center rounded shadow-sm category-container" style="background-color: {{ category.color }}; color: #fff;">
               {{ category.name }}
+              <a href="#" class="tex-decoration-none float-end text-white"><span><i class="fa-duotone fa-solid fa-plus"></i></span></a>
             </div>
           </div>
         {% endfor %}
       </div>
     {% else %}
-      <p class="text-muted">No categories found. Add a new one above.</p>
+
+       <!-- Steps Section -->
+        <div class="card-body text-center">
+            <h5 class="card-title mb-3">Steps to Get Started</h5>
+            <ul class="list-unstyled text-muted">
+                <li class="mb-2">1. Create a few categories (e.g., Finance).</li>
+                <li>2. Add goals linked to a category and timeslot (e.g., Save $300).</li>
+            </ul>
+        </div>
     {% endif %}
+    </div>
+</div>
   </div>
 </div>
 {% endblock %}

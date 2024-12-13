@@ -1,0 +1,13 @@
+.custom-grey {
+    background-color: #e0e0e0; /* Slightly darker than bg-light */
+  }
+
+.category-container {
+    min-height: 50vh !important;
+}
+
+.btn-extra-lg {
+    padding: 1.5rem 2rem; /* Increase padding for larger size */
+    font-size: 1.25rem;   /* Increase font size */
+    border-radius: 0.375rem; /* Optional: increase the border radius */
+}
