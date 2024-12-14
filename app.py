@@ -1,6 +1,8 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
+from enum import Enum as PyEnum
+from sqlalchemy import Enum
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_migrate import Migrate
 import random
@@ -39,6 +41,42 @@ class Category(db.Model):
 
     def __repr__(self):
         return f"Category('{self.id}', '{self.name}', '{self.color}')"
+    
+# Define the Goal model
+class Goal(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  # ID as primary key
+    
+    # Foreign key linking to User
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user = db.relationship('User', backref='goals', lazy=True)
+    
+    # Name of the goal
+    name = db.Column(db.String(100), nullable=False)
+    
+    # Foreign key linking to Category
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
+    category = db.relationship('Category', backref='goals', lazy=True)
+    
+    # Description text for the goal
+    text = db.Column(db.Text, nullable=False)
+    
+    # Important and Done toggles
+    important = db.Column(db.Boolean, default=False, nullable=False)
+    done = db.Column(db.Boolean, default=False, nullable=False)
+    
+    # Enum for time slot
+    class TimeSlotEnum(PyEnum):
+        YEAR = 'year'
+        SEMESTER = 'semester'
+        TRIMESTER = 'trimester'
+        MONTH = 'month'
+    
+    time_slot = db.Column(Enum(TimeSlotEnum), nullable=False, default=TimeSlotEnum.MONTH)
+
+    def __repr__(self):
+        return (f"Goal('{self.id}', '{self.name}', UserID: '{self.user_id}', "
+                f"CategoryID: '{self.category_id}', Important: {self.important}, "
+                f"Done: {self.done}, TimeSlot: {self.time_slot.value})")
 
 
 # Create the database and tables (run this only once, e.g., manually or in setup)
@@ -105,6 +143,10 @@ def dashboard():
         return redirect(url_for('login'))
 
     user = User.query.get(session['user_id'])
+
+     # Get the goals associated with the logged-in user
+    goals = user.goals  # This retrieves the goals related to the user
+
     return render_template('dashboard.html', username=user.username, categories=user.categories)
 
 # Define route for the logout page
@@ -218,6 +260,54 @@ def delete_category(category_id):
 
     flash("Category deleted successfully.", "success")
     return redirect(url_for('dashboard'))
+
+
+@app.route('/add-goal', methods=['GET', 'POST'])
+def add_goal():
+    if 'user_id' not in session:
+        flash("You need to log in first.", "danger")
+        return redirect(url_for('login'))
+
+    user = User.query.get(session['user_id'])  # Get the logged-in user
+    categories = user.categories  # Get the categories associated with the user
+
+    if request.method == 'POST':
+        goal_name = request.form['goal_name'].strip()  # Trim leading/trailing spaces
+        formatted_name = ' '.join(word.capitalize() for word in goal_name.split())  # Capitalize each word
+        category_id = request.form['category_id']
+        goal_text = request.form['goal_text'].strip()
+        important = 'important' in request.form  # Checkbox will be in the form as 'important'
+        done = 'done' in request.form  # Checkbox will be in the form as 'done'
+        time_slot = request.form['time_slot']
+
+        # Validate that a valid category is selected
+        category = Category.query.get(category_id)
+        if not category or category.user_id != user.id:
+            flash("Invalid category selected.", "danger")
+            return redirect(url_for('add_goal'))
+
+        # Check if a goal with the same name already exists for the user under this category
+        if Goal.query.filter_by(name=formatted_name, user_id=user.id, category_id=category_id).first():
+            flash("Goal with this name already exists in this category.", "danger")
+            return redirect(url_for('add_goal'))
+
+        # Create and add the new goal
+        new_goal = Goal(
+            user_id=user.id,
+            category_id=category_id,
+            name=formatted_name,
+            text=goal_text,
+            important=important,
+            done=done,
+            time_slot=time_slot
+        )
+        db.session.add(new_goal)
+        db.session.commit()
+
+        flash("Goal created successfully!", "success")
+        return redirect(url_for('dashboard'))
+
+    return render_template('add_goal.html', categories=categories)
 
 
 if __name__ == '__main__':
