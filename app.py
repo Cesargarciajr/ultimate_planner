@@ -35,12 +35,18 @@ class User(db.Model):
 # Define the Category model with unique color
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False, unique=True)
-    color = db.Column(db.String(7), nullable=False, unique=True)  # Ensure the color is unique
+    name = db.Column(db.String(100), nullable=False)
+    color = db.Column(db.String(7), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    __table_args__ = (
+        db.UniqueConstraint('name', 'user_id', name='unique_category_per_user'),
+        db.UniqueConstraint('color', 'user_id', name='unique_color_per_user')
+    )
 
     def __repr__(self):
         return f"Category('{self.id}', '{self.name}', '{self.color}')"
+
     
 # Define the Goal model
 class Goal(db.Model):
@@ -143,11 +149,8 @@ def dashboard():
         return redirect(url_for('login'))
 
     user = User.query.get(session['user_id'])
-
-     # Get the goals associated with the logged-in user
-    goals = user.goals  # This retrieves the goals related to the user
-
-    return render_template('dashboard.html', username=user.username, categories=user.categories)
+    goals = user.goals  # Retrieves the goals related to the logged-in user
+    return render_template('dashboard.html', username=user.username, categories=user.categories, goals=goals)
 
 # Define route for the logout page
 @app.route("/logout")
@@ -171,28 +174,35 @@ def add_category():
         return redirect(url_for('login'))
 
     user = User.query.get(session['user_id'])  # Get the logged-in user
-    categories = user.categories  # Get the categories associated with the user
+    categories = user.categories  # Categories associated with the current user
 
     if request.method == 'POST':
-        category_name = request.form['category_name'].strip()  # Trim leading/trailing spaces
+        category_name = request.form['category_name'].strip()  # Trim spaces
         formatted_name = ' '.join(word.capitalize() for word in category_name.split())  # Capitalize each word
         user_id = session['user_id']
 
-        # Check for uniqueness of category name for the user
-        if Category.query.filter_by(name=formatted_name, user_id=user_id).first():
-            flash("Category already exists. Try another name", "danger")
+        # Check if the user already has this category name
+        existing_category = Category.query.filter_by(name=formatted_name, user_id=user_id).first()
+        if existing_category:
+            flash("Category with this name already exists in your list.", "danger")
             return redirect(url_for('add_category'))
 
-        # Generate a random hex color and ensure it is unique
+        # Generate a unique color
         def generate_unique_color():
             color = "#{:02x}{:02x}{:02x}".format(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-            if Category.query.filter_by(color=color).first():
-                return generate_unique_color()  # Recursively call the function to generate a new color
+            if Category.query.filter_by(color=color, user_id=user_id).first():
+                return generate_unique_color()  # Recursively call to generate another color
             return color
 
         category_color = generate_unique_color()
 
-        # Create and add the new category with the formatted name and unique color
+        # Check if the user already has this category color
+        existing_color_category = Category.query.filter_by(color=category_color, user_id=user_id).first()
+        if existing_color_category:
+            flash("Category with this color already exists in your list.", "danger")
+            return redirect(url_for('add_category'))
+
+        # Add the new category
         new_category = Category(name=formatted_name, color=category_color, user_id=user_id)
         db.session.add(new_category)
         db.session.commit()
@@ -201,6 +211,7 @@ def add_category():
         return redirect(url_for('dashboard'))
 
     return render_template('add_category.html', categories=categories)
+
 
 @app.route('/edit-category/<int:category_id>', methods=['GET', 'POST'])
 def edit_category(category_id):
@@ -278,8 +289,10 @@ def add_goal():
         goal_text = request.form['goal_text'].strip()
         important = 'important' in request.form  # Checkbox will be in the form as 'important'
         done = 'done' in request.form  # Checkbox will be in the form as 'done'
-        time_slot = request.form['time_slot']
-
+        
+        # Time slot value from the form, ensure it's uppercased
+        time_slot = request.form['time_slot'].upper()  # Convert to uppercase
+        
         # Validate that a valid category is selected
         category = Category.query.get(category_id)
         if not category or category.user_id != user.id:
@@ -299,7 +312,7 @@ def add_goal():
             text=goal_text,
             important=important,
             done=done,
-            time_slot=time_slot
+            time_slot=time_slot  # This will now be passed in uppercase
         )
         db.session.add(new_goal)
         db.session.commit()
@@ -309,6 +322,81 @@ def add_goal():
 
     return render_template('add_goal.html', categories=categories)
 
+
+@app.route('/edit-goal/<int:goal_id>', methods=['GET', 'POST'])
+def edit_goal(goal_id):
+    if 'user_id' not in session:
+        flash("You need to log in first.", "danger")
+        return redirect(url_for('login'))
+
+    user = User.query.get(session['user_id'])  # Get the logged-in user
+    goal = Goal.query.get_or_404(goal_id)  # Get the goal or return 404 if not found
+
+    # Ensure the goal belongs to the logged-in user
+    if goal.user_id != user.id:
+        flash("You do not have permission to edit this goal.", "danger")
+        return redirect(url_for('dashboard'))
+
+    categories = user.categories  # Get the categories associated with the user
+
+    if request.method == 'POST':
+        goal_name = request.form['goal_name'].strip()  # Trim leading/trailing spaces
+        formatted_name = ' '.join(word.capitalize() for word in goal_name.split())  # Capitalize each word
+        category_id = request.form['category_id']
+        goal_text = request.form['goal_text'].strip()
+        important = 'important' in request.form  # Checkbox will be in the form as 'important'
+        done = 'done' in request.form  # Checkbox will be in the form as 'done'
+        
+        # Time slot value from the form, ensure it's uppercased
+        time_slot = request.form['time_slot'].upper()  # Convert to uppercase
+        
+        # Validate that a valid category is selected
+        category = Category.query.get(category_id)
+        if not category or category.user_id != user.id:
+            flash("Invalid category selected.", "danger")
+            return redirect(url_for('edit_goal', goal_id=goal_id))
+
+        # Check if a goal with the same name already exists for the user under this category
+        existing_goal = Goal.query.filter_by(name=formatted_name, user_id=user.id, category_id=category_id).first()
+        if existing_goal and existing_goal.id != goal_id:
+            flash("Goal with this name already exists in this category.", "danger")
+            return redirect(url_for('edit_goal', goal_id=goal_id))
+
+        # Update the goal
+        goal.name = formatted_name
+        goal.category_id = category_id
+        goal.text = goal_text
+        goal.important = important
+        goal.done = done
+        goal.time_slot = Goal.TimeSlotEnum[time_slot]
+
+        db.session.commit()
+
+        flash("Goal updated successfully!", "success")
+        return redirect(url_for('dashboard'))
+
+    return render_template('edit_goal.html', goal=goal, categories=categories)
+
+
+@app.route('/delete-goal/<int:goal_id>', methods=['POST'])
+def delete_goal(goal_id):
+    if 'user_id' not in session:
+        flash("You need to log in first.", "danger")
+        return redirect(url_for('login'))
+
+    user = User.query.get(session['user_id'])  # Get the logged-in user
+    goal = Goal.query.get_or_404(goal_id)  # Get the goal or return 404 if not found
+
+    # Ensure the goal belongs to the logged-in user
+    if goal.user_id != user.id:
+        flash("You do not have permission to delete this goal.", "danger")
+        return redirect(url_for('dashboard'))
+
+    db.session.delete(goal)
+    db.session.commit()
+
+    flash("Goal deleted successfully.", "success")
+    return redirect(url_for('dashboard'))
 
 if __name__ == '__main__':
     app.run(debug=True)

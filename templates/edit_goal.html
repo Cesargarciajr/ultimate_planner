@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2><i class="fa-solid fa-pen-to-square"></i> Edit Goal</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="goal_name" class="form-label">Goal Name</label>
+            <input type="text" class="form-control" id="goal_name" name="goal_name" value="{{ goal.name }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="category_id" class="form-label">Category</label>
+            <select class="form-select" id="category_id" name="category_id" required>
+                {% for category in categories %}
+                    <option value="{{ category.id }}" {% if category.id == goal.category_id %}selected{% endif %}>{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="goal_text" class="form-label">Goal Description</label>
+            <textarea class="form-control" id="goal_text" name="goal_text" rows="3" required>{{ goal.text }}</textarea>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="important" name="important" {% if goal.important %}checked{% endif %}>
+            <label class="form-check-label" for="important">Important</label>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="done" name="done" {% if goal.done %}checked{% endif %}>
+            <label class="form-check-label" for="done">Done</label>
+        </div>
+        <div class="mb-3">
+            <label for="time_slot" class="form-label">Time Slot</label>
+            <select class="form-select" id="time_slot" name="time_slot" required>
+                {% for slot in goal.TimeSlotEnum %}
+                    <option value="{{ slot.name }}" {% if slot == goal.time_slot %}selected{% endif %}>{{ slot.value }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Goal</button>
+    </form>
+</div>
+{% endblock %}
