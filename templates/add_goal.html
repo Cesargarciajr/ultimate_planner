@@ -8,47 +8,47 @@
   <div class="container mt-5">
     <!-- Form to add a new category -->
     <h3 class="mt-4"><i class="fa-solid fa-circle-plus"></i> Add Goal</h3>
-    <form method="POST">
-      <div class="form-group">
-        <label for="goal_name">Name</label>
-        <input type="text" class="form-control" id="goal_name" name="goal_name" required placeholder='Goal Name (e.g. "Emergency found")'/>
-      </div>
-
-      <div class="form-group">
-        <label for="category_id">Category</label>
-        <select class="form-control" id="category_id" name="category_id" required>
-          {% for category in categories %}
-            <option value="{{ category.id }}">{{ category.name }}</option>
-          {% endfor %}
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="goal_text">Success Criteria</label>
-        <textarea class="form-control" id="goal_text" name="goal_text" required placeholder='e.g."Save 300$"'></textarea>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="important" name="important" />
-        <label class="form-check-label" for="important">Important</label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="done" name="done" />
-        <label class="form-check-label" for="done">Done</label>
-      </div>
-
-      <div class="form-group">
-        <label for="time_slot">Time Slot</label>
-        <select class="form-control" id="time_slot" name="time_slot" required>
-          <option value="year">Year</option>
-          <option value="semester">Semester</option>
-          <option value="trimester">Trimester</option>
-          <option value="month">Month</option>
-        </select>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Create Goal</button>
+    <form method="POST" action="{{ url_for('add_goal') }}">
+        <div class="form-group">
+            <label for="goal_name">Goal Name</label>
+            <input type="text" class="form-control" id="goal_name" name="goal_name" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="category_id">Category</label>
+            <select class="form-control" id="category_id" name="category_id" required>
+                {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label for="goal_text">Goal Description</label>
+            <textarea class="form-control" id="goal_text" name="goal_text" required></textarea>
+        </div>
+    
+        <div class="form-group">
+            <label>Time Slot</label><br>
+            <select name="time_slot" class="form-control">
+                <option value="YEAR">Year</option>
+                <option value="SEMESTER">Semester</option>
+                <option value="TRIMESTER">Trimester</option>
+                <option value="MONTH">Month</option>
+            </select>
+        </div>
+    
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="important" name="important">
+            <label class="form-check-label" for="important">Important</label>
+        </div>
+    
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="done" name="done">
+            <label class="form-check-label" for="done">Done</label>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Add Goal</button>
     </form>
     <br />
   </div>
