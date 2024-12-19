@@ -1,3 +1,11 @@
+html, body {
+    height: 85%;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
 .custom-grey {
     background-color: #e0e0e0; /* Slightly darker than bg-light */
   }
