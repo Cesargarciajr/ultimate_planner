@@ -419,5 +419,26 @@ def mark_done(goal_id):
     flash("Goal status updated.", "success")
     return redirect(url_for('dashboard'))
 
+@app.route('/mark-important/<int:goal_id>', methods=['POST'])
+def mark_important(goal_id):
+    if 'user_id' not in session:
+        flash("You need to log in first.", "danger")
+        return redirect(url_for('login'))
+
+    user = User.query.get(session['user_id'])  # Get the logged-in user
+    goal = Goal.query.get_or_404(goal_id)  # Get the goal or return 404 if not found
+
+    # Ensure the goal belongs to the logged-in user
+    if goal.user_id != user.id:
+        flash("You do not have permission to modify this goal.", "danger")
+        return redirect(url_for('dashboard'))
+
+    # Toggle the important status
+    goal.important = not goal.important
+    db.session.commit()
+
+    flash("Goal status updated.", "success")
+    return redirect(url_for('dashboard'))
+
 if __name__ == '__main__':
     app.run(debug=True)
