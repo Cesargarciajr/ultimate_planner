@@ -22,9 +22,6 @@ else:
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, but recommended to disable
 
-
-
-
 # Initialize the database
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
