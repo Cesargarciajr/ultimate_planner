@@ -6,34 +6,35 @@
     <form method="POST">
         <div class="mb-3">
             <label for="goal_name" class="form-label">Goal Name</label>
-            <input type="text" class="form-control" id="goal_name" name="goal_name" value="{{ goal.name }}" required>
+            <input type="text" class="form-control" id="goal_name" name="goal_name" value="{{ goal.goal_name }}" required>
         </div>
         <div class="mb-3">
             <label for="category_id" class="form-label">Category</label>
             <select class="form-select" id="category_id" name="category_id" required>
                 {% for category in categories %}
-                    <option value="{{ category.id }}" {% if category.id == goal.category_id %}selected{% endif %}>{{ category.name }}</option>
+                    <option value="{{ category.category_id }}" {% if category.category_id == goal.category_id %}selected{% endif %}>{{ category.category_name }}</option>
                 {% endfor %}
             </select>
         </div>
         <div class="mb-3">
-            <label for="goal_text" class="form-label">Goal Description</label>
-            <textarea class="form-control" id="goal_text" name="goal_text" rows="3" required>{{ goal.text }}</textarea>
+            <label for="goal_description" class="form-label">Goal Description</label>
+            <textarea class="form-control" id="goal_description" name="goal_description" rows="3" required>{{ goal.goal_description }}</textarea>
         </div>
         <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="important" name="important" {% if goal.important %}checked{% endif %}>
-            <label class="form-check-label" for="important">Important</label>
+            <input class="form-check-input" type="checkbox" id="goal_important" name="goal_important" {% if goal.goal_important %}checked{% endif %}>
+            <label class="form-check-label" for="goal_important">Important</label>
         </div>
         <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="done" name="done" {% if goal.done %}checked{% endif %}>
-            <label class="form-check-label" for="done">Done</label>
+            <input class="form-check-input" type="checkbox" id="goal_done" name="goal_done" {% if goal.goal_done %}checked{% endif %}>
+            <label class="form-check-label" for="goal_done">Done</label>
         </div>
         <div class="mb-3">
-            <label for="time_slot" class="form-label">Time Slot</label>
-            <select class="form-select" id="time_slot" name="time_slot" required>
-                {% for slot in goal.TimeSlotEnum %}
-                    <option value="{{ slot.name }}" {% if slot == goal.time_slot %}selected{% endif %}>{{ slot.value }}</option>
-                {% endfor %}
+            <label for="goal_timeframe_selection" class="form-label">Time Frame Selection</label>
+            <select class="form-select" id="goal_timeframe_selection" name="goal_timeframe_selection" required>
+                <option value="year" {% if goal.goal_timeframe_selection == 'year' %}selected{% endif %}>Year</option>
+                <option value="semester" {% if goal.goal_timeframe_selection == 'semester' %}selected{% endif %}>Semester</option>
+                <option value="trimester" {% if goal.goal_timeframe_selection == 'trimester' %}selected{% endif %}>Trimester</option>
+                <option value="month" {% if goal.goal_timeframe_selection == 'month' %}selected{% endif %}>Month</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Update Goal</button>

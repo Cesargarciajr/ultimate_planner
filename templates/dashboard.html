@@ -17,24 +17,24 @@
       <a class="btn btn-primary btn-lg px-4 rounded shadow-sm" href="{{ url_for('add_goal') }}"><i class="fa-solid fa-circle-plus"></i> Add Goal</a>
       <a class="btn btn-success btn-lg px-4 rounded shadow-sm" href="{{ url_for('add_category') }}"><i class="fa-solid fa-circle-plus"></i> Add Category</a>
     </div>
-    <br>
-    
+    <br />
+
     {% if categories %}
-        <!-- Nav Tabs -->
-        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-          <li class="nav-item text-center" role="presentation">
-            <button class="nav-link active" id="year-tab" data-bs-toggle="tab" data-bs-target="#year" type="button" role="tab" aria-controls="year" aria-selected="true">Year</button>
-          </li>
-          <li class="nav-item text-center" role="presentation">
-            <button class="nav-link" id="semester-tab" data-bs-toggle="tab" data-bs-target="#semester" type="button" role="tab" aria-controls="semester" aria-selected="false">Semester</button>
-          </li>
-          <li class="nav-item text-center" role="presentation">
-            <button class="nav-link" id="trimester-tab" data-bs-toggle="tab" data-bs-target="#trimester" type="button" role="tab" aria-controls="trimester" aria-selected="false">Trimester</button>
-          </li>
-          <li class="nav-item text-center" role="presentation">
-            <button class="nav-link" id="month-tab" data-bs-toggle="tab" data-bs-target="#month" type="button" role="tab" aria-controls="month" aria-selected="false">Month</button>
-          </li>
-        </ul>
+      <!-- Nav Tabs -->
+      <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item text-center" role="presentation">
+          <button class="nav-link active" id="year-tab" data-bs-toggle="tab" data-bs-target="#year" type="button" role="tab" aria-controls="year" aria-selected="true">Year</button>
+        </li>
+        <li class="nav-item text-center" role="presentation">
+          <button class="nav-link" id="semester-tab" data-bs-toggle="tab" data-bs-target="#semester" type="button" role="tab" aria-controls="semester" aria-selected="false">Semester</button>
+        </li>
+        <li class="nav-item text-center" role="presentation">
+          <button class="nav-link" id="trimester-tab" data-bs-toggle="tab" data-bs-target="#trimester" type="button" role="tab" aria-controls="trimester" aria-selected="false">Trimester</button>
+        </li>
+        <li class="nav-item text-center" role="presentation">
+          <button class="nav-link" id="month-tab" data-bs-toggle="tab" data-bs-target="#month" type="button" role="tab" aria-controls="month" aria-selected="false">Month</button>
+        </li>
+      </ul>
 
       <!-- Tab Content -->
       <div class="tab-content custom-grey p-1 rounded shadow-sm border-0" id="myTabContent">
@@ -63,9 +63,9 @@
           </div>
         </div>
       </div>
-    {% else %}
+      {% else %}
       <!-- Steps Section -->
-      <div class="container my-5 p-4 custom-grey rounded shadow-sm">
+      <div class="container p-5 custom-grey rounded shadow-sm">
         <div class="row">
           <div class="col-12 text-center mb-4">
             <h2 class="mb-3"><i class="fa-solid fa-list"></i> Steps to Get Started</h2>

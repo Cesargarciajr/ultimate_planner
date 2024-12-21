@@ -1,8 +1,6 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
-from enum import Enum as PyEnum
-from sqlalchemy import Enum
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_migrate import Migrate
 import random
@@ -19,13 +17,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 # Initialize the database
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
-# Enum for timeframe selection
-class TimeFrameSelection(PyEnum):
-    YEAR = 'YEAR'
-    SEMESTER = 'SEMESTER'
-    TRIMESTER = 'TRIMESTER'
-    MONTH = 'MONTH'
 
 # Define the User model (modified to include the relationship)
 class User(db.Model):
@@ -54,6 +45,9 @@ class Category(db.Model):
     def __repr__(self):
         return f"Category('{self.category_id}', '{self.category_name}', '{self.category_color}')"
 
+# Define allowed timeframes for goals
+ALLOWED_TIMEFRAMES = ['year', 'semester', 'trimester', 'month']
+
 # Define the Goal model
 class Goal(db.Model):
     goal_id = db.Column(db.Integer, primary_key=True)
@@ -61,7 +55,7 @@ class Goal(db.Model):
     goal_description = db.Column(db.String(255), nullable=False)
     goal_important = db.Column(db.Boolean, default=False)
     goal_done = db.Column(db.Boolean, default=False)
-    goal_timeframe_selection = db.Column(Enum(TimeFrameSelection), nullable=False)
+    goal_timeframe_selection = db.Column(db.String(50), nullable=False)  # Use a regular string column
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('category.category_id'), nullable=False)
 
@@ -141,6 +135,7 @@ def logout():
 # Define route for the dashboard page
 @app.route('/dashboard')
 def dashboard():
+    """Dashboard page with user's categories and goals"""
     if 'user_id' not in session:
         flash("You need to log in first.", "danger")
         return redirect(url_for('login'))
@@ -271,7 +266,6 @@ def delete_category(category_id):
 # Define route for the add goal page
 @app.route('/add-goal', methods=['GET', 'POST'])
 def add_goal():
-    """Add a new goal"""
     if 'user_id' not in session:
         flash("You need to log in first.", "danger")
         return redirect(url_for('login'))
@@ -286,7 +280,12 @@ def add_goal():
         goal_description = request.form['goal_description'].strip()
         goal_important = 'goal_important' in request.form
         goal_done = 'goal_done' in request.form
-        goal_timeframe_selection = request.form['goal_timeframe_selection'].lower()  # Ensure time_period is lowercase
+        goal_timeframe_selection = request.form['goal_timeframe_selection'].lower()
+
+        # Validate the timeframe selection
+        if goal_timeframe_selection not in ALLOWED_TIMEFRAMES:
+            flash("Invalid timeframe selection.", "danger")
+            return redirect(url_for('add_goal'))
 
         # Validate that a valid category is selected
         category = Category.query.get(category_id)
@@ -365,7 +364,7 @@ def edit_goal(goal_id):
         goal.goal_description = goal_description
         goal.goal_important = goal_important
         goal.goal_done = goal_done
-        goal.goal_timeframe_selection = Goal.TimeFrameSelection[goal_timeframe_selection]
+        goal.goal_timeframe_selection = goal_timeframe_selection  # Directly assign the lowercase value
 
         db.session.commit()
 
