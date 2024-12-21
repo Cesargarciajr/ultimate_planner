@@ -10,7 +10,7 @@ if os.path.isfile("env.py"):
 
 # Initialize the Flask application
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ultimate_planner.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, but recommended to disable
 app.secret_key = os.environ.get("SECRET_KEY")
 
@@ -66,10 +66,6 @@ class Goal(db.Model):
 def create_db():
     with app.app_context():
         db.create_all()
-
-# Run the Flask application
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
 
 # Define route for the home page
 @app.route("/")
