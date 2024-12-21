@@ -26,6 +26,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, but recommende
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+# Define your models and routes here...
+
+# Run the Flask application
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
+
 # Define the User model (modified to include the relationship)
 class User(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
@@ -79,7 +85,9 @@ def create_db():
 @app.route("/")
 def index():
     """Home template running"""
+    print("Rendering index.html")
     return render_template("index.html")
+
 
 # Define route for the registration page
 @app.route('/register', methods=['GET', 'POST'])
@@ -152,14 +160,7 @@ def dashboard():
     categories = user.categories
     goals = Goal.query.filter_by(user_id=user.user_id).all()
 
-    # Debugging statements
-    print("User ID:", user.user_id)
-    print("Categories:", categories)
-    print("Goals:", goals)
-    for goal in goals:
-        print("Goal ID:", goal.goal_id)
-        print("Goal Timeframe Selection:", goal.goal_timeframe_selection)
-
+    print("Rendering dashboard.html")
     return render_template('dashboard.html', username=user.user_name, categories=categories, goals=goals)
 
 # Define route for the add category page
@@ -448,10 +449,3 @@ def mark_important(goal_id):
 
     flash("Goal status updated.", "success")
     return redirect(url_for('dashboard'))
-
-if __name__ == '__main__':
-    app.run(
-        host=os.environ.get("IP"),
-        port=int(os.environ.get("PORT")),
-        debug=os.environ.get("DEBUG")
-    )
