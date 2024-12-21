@@ -14,103 +14,73 @@
 
     <!-- Action Buttons Section -->
     <div class="d-grid gap-3 gap-md-4 d-md-flex justify-content-md-center mb-4">
-      <a class="btn btn-primary btn-lg px-4" href="/add-goal"><i class="fa-solid fa-circle-plus"></i> Add Goal</a>
-      <a class="btn btn-success btn-lg px-4" href="/add-category"><i class="fa-solid fa-circle-plus"></i> Add Category</a>
+      <a class="btn btn-primary btn-lg px-4 rounded shadow-sm" href="{{ url_for('add_goal') }}"><i class="fa-solid fa-circle-plus"></i> Add Goal</a>
+      <a class="btn btn-success btn-lg px-4 rounded shadow-sm" href="{{ url_for('add_category') }}"><i class="fa-solid fa-circle-plus"></i> Add Category</a>
     </div>
+    <br>
+    
+    {% if categories %}
+        <!-- Nav Tabs -->
+        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+          <li class="nav-item text-center" role="presentation">
+            <button class="nav-link active" id="year-tab" data-bs-toggle="tab" data-bs-target="#year" type="button" role="tab" aria-controls="year" aria-selected="true">Year</button>
+          </li>
+          <li class="nav-item text-center" role="presentation">
+            <button class="nav-link" id="semester-tab" data-bs-toggle="tab" data-bs-target="#semester" type="button" role="tab" aria-controls="semester" aria-selected="false">Semester</button>
+          </li>
+          <li class="nav-item text-center" role="presentation">
+            <button class="nav-link" id="trimester-tab" data-bs-toggle="tab" data-bs-target="#trimester" type="button" role="tab" aria-controls="trimester" aria-selected="false">Trimester</button>
+          </li>
+          <li class="nav-item text-center" role="presentation">
+            <button class="nav-link" id="month-tab" data-bs-toggle="tab" data-bs-target="#month" type="button" role="tab" aria-controls="month" aria-selected="false">Month</button>
+          </li>
+        </ul>
 
-    <!-- Planner Section -->
-    <div class="container my-5 p-4 custom-grey rounded shadow-sm">
-      <div class="row">
-        <div class="col-12 text-center mb-4">
-          <h2 class="mb-3"><i class="fa-solid fa-list"></i> Year</h2>
+      <!-- Tab Content -->
+      <div class="tab-content custom-grey p-1 rounded shadow-sm border-0" id="myTabContent">
+        <div class="tab-pane fade show active custom-grey" id="year" role="tabpanel" aria-labelledby="year-tab">
+          {% set goal_timeframe_selection = 'year' %}
+          <div class="row m-2 g-3">
+            {% include 'partials/_categories.html' %}
+          </div>
         </div>
-
-        {% if categories %}
-          <div class="row g-3">
-            {% for category in categories %}
-              <div class="col-12 col-md-6 col-lg-4 category-container">
-                <div class="p-3 text-center rounded shadow-sm category-container" style="background-color: {{ category.color }}; color: #fff;">
-                  <h5><strong>{{ category.name }}</strong></h5>
-
-                  <!-- Section for the goals -->
-                  {% set category_goals = goals|selectattr('category_id', 'equalto', category.id)|list %}
-                  {% if category_goals %}
-                    <ul class="m-2 p-0">
-                      {% for goal in category_goals %}
-                        <li class="list-group-item m-1 shadow rounded-2 text-white d-flex flex-column" style="background-color: rgba(255, 255, 255, 0.15);">
-                          <!-- Goal Title Section -->
-                          <div class="d-flex justify-content-between">
-                            <h5 class="mb-0 w-100">
-                              <button class="btn collapsed w-100 text-white text-start" type="button" data-bs-toggle="collapse" data-bs-target="#goal-{{ goal.id }}" aria-expanded="false" aria-controls="goal-{{ goal.id }}">
-                                <strong class="d-flex justify-content-between align-items-center">
-                                  <span>
-                                    {% if goal.done %}
-                                      <i class="fa-solid fa-circle-check me-2"></i>
-                                    {% endif %}
-                                    {% if goal.important %}
-                                      <i class="fa-solid fa-circle-exclamation me-2"></i>
-                                    {% endif %}
-                                    {{ goal.name }}
-                                  </span>
-                                  <i class="fa-solid fa-caret-down"></i>
-                                </strong>
-                              </button>
-                            </h5>
-                          </div>
-
-                          <!-- Collapsible Content Section -->
-                          <div id="goal-{{ goal.id }}" class="collapse">
-                            <div class="mt-1 p-3 rounded-3">
-                              <!-- Success Criteria -->
-                              <p class="mb-3">
-                                Success Criteria:
-                                <br />{{ goal.text }}
-                              </p>
-
-                              <!-- Action Buttons -->
-                              <div class="d-flex flex-wrap justify-content-between">
-                                <div class="p-1 flex-grow-1">
-                                  <form action="{{ url_for('mark_done', goal_id=goal.id) }}" method="POST" style="display:inline;">
-                                    <button type="submit" class="btn btn-success w-100 shadow-sm" title="Mark as Done"><i class="fa-solid fa-square-check"></i></button>
-                                  </form>
-                                </div>
-                                <div class="p-1 flex-grow-1">
-                                  <form action="{{ url_for('mark_important', goal_id=goal.id) }}" method="POST" style="display:inline;">
-                                    <button type="submit" class="btn btn-warning w-100 shadow-sm" title="Mark as Important"><i class="fa-solid fa-circle-exclamation"></i></button>
-                                  </form>
-                                </div>
-                                <div class="p-1 flex-grow-1">
-                                  <a href="{{ url_for('edit_goal', goal_id=goal.id) }}" class="btn btn-info w-100 shadow-sm" title="Edit Goal"><i class="fas fa-edit"></i></a>
-                                </div>
-                                <div class="p-1 flex-grow-1">
-                                  <form action="{{ url_for('delete_goal', goal_id=goal.id) }}" method="POST" style="display:inline;">
-                                    <button type="submit" class="btn btn-danger w-100 shadow-sm" title="Delete Goal" onclick="return confirm('Are you sure you want to delete this goal?');"><i class="fas fa-trash-alt"></i></button>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  {% else %}
-                    <p class="pt-4 text-white text-center">No goals added for this category yet.</p>
-                  {% endif %}
-                </div>
-              </div>
-            {% endfor %}
+        <div class="tab-pane fade" id="semester" role="tabpanel" aria-labelledby="semester-tab">
+          {% set goal_timeframe_selection = 'semester' %}
+          <div class="row m-2 g-3">
+            {% include 'partials/_categories.html' %}
           </div>
-        {% else %}
-          <!-- Steps Section -->
-          <div class="card-body text-center">
-            <h5 class="card-title mb-3">Steps to Get Started</h5>
-            <ul class="list-unstyled text-muted">
-              <li class="mb-2">1. Create a few categories (e.g., Finance).</li>
-              <li>2. Add goals linked to a category and timeslot (e.g., Save $300).</li>
-            </ul>
+        </div>
+        <div class="tab-pane fade" id="trimester" role="tabpanel" aria-labelledby="trimester-tab">
+          {% set goal_timeframe_selection = 'trimester' %}
+          <div class="row m-2 g-3">
+            {% include 'partials/_categories.html' %}
           </div>
-        {% endif %}
+        </div>
+        <div class="tab-pane fade" id="month" role="tabpanel" aria-labelledby="month-tab">
+          {% set goal_timeframe_selection = 'month' %}
+          <div class="row m-2 g-3">
+            {% include 'partials/_categories.html' %}
+          </div>
+        </div>
       </div>
-    </div>
+    {% else %}
+      <!-- Steps Section -->
+      <div class="container my-5 p-4 custom-grey rounded shadow-sm">
+        <div class="row">
+          <div class="col-12 text-center mb-4">
+            <h2 class="mb-3"><i class="fa-solid fa-list"></i> Steps to Get Started</h2>
+            <div class="card-body text-center">
+              <ul class="list-unstyled text-muted">
+                <li class="mb-2">1. Create a few categories (e.g., Finance).</li>
+                <li>2. Add goals linked to a category and timeslot (e.g., Save $300).</li>
+              </ul>
+              <div class="justify-content-md-center">
+                <a class="btn btn-success btn-lg" href="{{ url_for('add_category') }}"><i class="fa-solid fa-play"></i> Start Plan</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
   </div>
 {% endblock %}

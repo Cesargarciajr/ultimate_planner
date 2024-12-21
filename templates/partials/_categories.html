@@ -1,0 +1,72 @@
+{% for category in categories %}
+  <div class="col-12 col-md-6 col-lg-4 category-container">
+    <div class="p-3 text-center rounded shadow-sm category-container" style="background-color: {{ category.category_color }}; color: #fff;">
+      <h5><strong>{{ category.category_name }}</strong></h5>
+
+      <!-- Section for the goals -->
+      {% set category_goals = goals|selectattr('category_id', 'equalto', category.category_id)|selectattr('goal_timeframe_selection', 'equalto', goal_timeframe_selection)|list %}
+      {% if category_goals %}
+        <ul class="m-2 p-0">
+          {% for goal in category_goals %}
+            <li class="list-group-item m-1 shadow rounded-2 text-white d-flex flex-column" style="background-color: rgba(255, 255, 255, 0.15);">
+              <!-- Goal Title Section -->
+              <div class="d-flex justify-content-between">
+                <h5 class="mb-0 w-100">
+                  <button class="btn collapsed w-100 text-white text-start" type="button" data-bs-toggle="collapse" data-bs-target="#goal-{{ goal.goal_id }}" aria-expanded="false" aria-controls="goal-{{ goal.goal_id }}">
+                    <strong class="d-flex justify-content-between align-items-center">
+                      <span>
+                        {% if goal.goal_done %}
+                          <i class="fa-solid fa-circle-check me-2"></i>
+                        {% endif %}
+                        {% if goal.goal_important %}
+                          <i class="fa-solid fa-circle-exclamation me-2"></i>
+                        {% endif %}
+                        {{ goal.goal_name }}
+                      </span>
+                      <i class="fa-solid fa-caret-down"></i>
+                    </strong>
+                  </button>
+                </h5>
+              </div>
+
+              <!-- Collapsible Content Section -->
+              <div id="goal-{{ goal.goal_id }}" class="collapse">
+                <div class="mt-1 p-3 rounded-3">
+                  <!-- Success Criteria -->
+                  <p class="mb-3">
+                    Success Criteria:
+                    <br />{{ goal.goal_description }}
+                  </p>
+
+                  <!-- Action Buttons -->
+                  <div class="d-flex flex-wrap justify-content-between">
+                    <div class="p-1 flex-grow-1">
+                      <form action="{{ url_for('mark_done', goal_id=goal.goal_id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-success w-100 shadow-sm" title="Mark as Done"><i class="fa-solid fa-square-check"></i></button>
+                      </form>
+                    </div>
+                    <div class="p-1 flex-grow-1">
+                      <form action="{{ url_for('mark_important', goal_id=goal.goal_id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-warning w-100 shadow-sm" title="Mark as Important"><i class="fa-solid fa-circle-exclamation"></i></button>
+                      </form>
+                    </div>
+                    <div class="p-1 flex-grow-1">
+                      <a href="{{ url_for('edit_goal', goal_id=goal.goal_id) }}" class="btn btn-info w-100 shadow-sm" title="Edit Goal"><i class="fas fa-edit"></i></a>
+                    </div>
+                    <div class="p-1 flex-grow-1">
+                      <form action="{{ url_for('delete_goal', goal_id=goal.goal_id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger w-100 shadow-sm" title="Delete Goal" onclick="return confirm('Are you sure you want to delete this goal?');"><i class="fas fa-trash-alt"></i></button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="pt-4 text-white text-center">No goals added for this category yet.</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}

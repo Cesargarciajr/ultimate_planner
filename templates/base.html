@@ -30,10 +30,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
+                        <a class="nav-link active" href="{{ url_for('dashboard') }}">Home</a>
                     </li>
                     <!-- Conditionally show buttons based on login status -->
                     {% if session.get('user_id') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('add_category')}}"> Categories </a>
+                    </li>
                     <div class="col-auto m-1">
                         <a class="btn btn-outline-light" href="/logout">
                             <i class="fa-solid fa-sign-out-alt"></i> Logout

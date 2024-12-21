@@ -19,3 +19,31 @@ html, body {
     font-size: 1.25rem;   /* Increase font size */
     border-radius: 0.375rem; /* Optional: increase the border radius */
 }
+
+/* Custom styles for nav tabs */
+.nav-tabs {
+    justify-content: center; /* Center the tabs on larger screens */
+}
+
+.nav-tabs .nav-item {
+    margin: 0 5px; /* Adjust the margin to bring the tabs closer together */
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #e0e0e0; /* Replace with your custom-grey color */
+    color: #000; /* Optional: Change the text color if needed */
+}
+
+/* Custom styles for nav tabs on mobile */
+@media (max-width: 576px) {
+    .nav-tabs {
+        flex-wrap: nowrap; /* Prevent the tabs from wrapping to the next line */
+    }
+    .nav-tabs .nav-item {
+        flex: 1 1 auto; /* Ensure each tab takes up equal space */
+    }
+    .nav-tabs .nav-link {
+        font-size: 12px; /* Adjust the font size as needed */
+        padding: 0.5rem 0.75rem; /* Adjust the padding as needed */
+    }
+}

@@ -5,32 +5,33 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container mt-5">
-    <!-- Form to add a new category -->
+  <div class="container mt-5 h-100">
+    <!-- Form to add a new goal -->
     <h3 class="mt-4"><i class="fa-solid fa-circle-plus"></i> Add Goal</h3>
     <form method="POST" action="{{ url_for('add_goal') }}">
-        <div class="form-group">
+        
+        <div class="form-group col-12 col-md-6 col-lg-4 m-2">
             <label for="goal_name">Goal Name</label>
-            <input type="text" class="form-control" id="goal_name" name="goal_name" required>
+            <input type="text" class="form-control" id="goal_name" name="goal_name" required placeholder="e.g. Emergency Fund">
         </div>
     
-        <div class="form-group">
+        <div class="form-group col-12 col-md-6 col-lg-4 m-2">
             <label for="category_id">Category</label>
             <select class="form-control" id="category_id" name="category_id" required>
                 {% for category in categories %}
-                    <option value="{{ category.id }}">{{ category.name }}</option>
+                    <option value="{{ category.category_id }}">{{ category.category_name }}</option>
                 {% endfor %}
             </select>
         </div>
     
-        <div class="form-group">
-            <label for="goal_text">Goal Description</label>
-            <textarea class="form-control" id="goal_text" name="goal_text" required></textarea>
+        <div class="form-group col-12 col-md-6 col-lg-4 m-2">
+            <label for="goal_description">Goal Description</label>
+            <textarea class="form-control" id="goal_description" name="goal_description" required placeholder="e.g. Save 5k"></textarea>
         </div>
     
-        <div class="form-group">
-            <label>Time Slot</label><br>
-            <select name="time_slot" class="form-control">
+        <div class="form-group col-12 col-md-6 col-lg-4 m-2">
+            <label>Time Frame Selection</label><br>
+            <select name="goal_timeframe_selection" class="form-control">
                 <option value="YEAR">Year</option>
                 <option value="SEMESTER">Semester</option>
                 <option value="TRIMESTER">Trimester</option>
@@ -39,13 +40,13 @@
         </div>
     
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="important" name="important">
-            <label class="form-check-label" for="important">Important</label>
+            <input type="checkbox" class="form-check-input" id="goal_important" name="goal_important">
+            <label class="form-check-label" for="goal_important">Important</label>
         </div>
     
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="done" name="done">
-            <label class="form-check-label" for="done">Done</label>
+            <input type="checkbox" class="form-check-input" id="goal_done" name="goal_done">
+            <label class="form-check-label" for="goal_done">Done</label>
         </div>
     
         <button type="submit" class="btn btn-primary">Add Goal</button>
