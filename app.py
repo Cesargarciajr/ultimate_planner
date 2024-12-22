@@ -1,4 +1,5 @@
 import os
+from app import app, db
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -11,14 +12,8 @@ if os.path.isfile("env.py"):
 # Initialize the Flask application
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY")
-
-if os.environ.get("DEVELOPMENT") == "True":
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")  # local
-else:
-    uri = os.environ.get("DATABASE_URL")
-    if uri and uri.startswith("postgres://"):
-        uri = uri.replace("postgres://", "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = uri  # heroku
+#app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")  # local
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")  # Heroku
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, but recommended to disable
 
