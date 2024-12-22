@@ -85,9 +85,7 @@ def create_db():
 @app.route("/")
 def index():
     """Home template running"""
-    print("Rendering index.html")
     return render_template("index.html")
-
 
 # Define route for the registration page
 @app.route('/register', methods=['GET', 'POST'])
@@ -160,7 +158,14 @@ def dashboard():
     categories = user.categories
     goals = Goal.query.filter_by(user_id=user.user_id).all()
 
-    print("Rendering dashboard.html")
+    # Debugging statements
+    print("User ID:", user.user_id)
+    print("Categories:", categories)
+    print("Goals:", goals)
+    for goal in goals:
+        print("Goal ID:", goal.goal_id)
+        print("Goal Timeframe Selection:", goal.goal_timeframe_selection)
+
     return render_template('dashboard.html', username=user.user_name, categories=categories, goals=goals)
 
 # Define route for the add category page
@@ -449,3 +454,6 @@ def mark_important(goal_id):
 
     flash("Goal status updated.", "success")
     return redirect(url_for('dashboard'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
