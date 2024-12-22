@@ -13,11 +13,11 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY")
 
 if os.environ.get("DEVELOPMENT") == "True":
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")  # local
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")  # local
 else:
     uri = os.environ.get("DATABASE_URL")
     if uri and uri.startswith("postgres://"):
-        uri = uri.replace("postgresql://", 1)
+        uri = uri.replace("postgres://", "postgresql://", 1)
     app.config["SQLALCHEMY_DATABASE_URI"] = uri  # heroku
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, but recommended to disable
@@ -25,12 +25,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, but recommende
 # Initialize the database
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
-# Define your models and routes here...
-
-# Run the Flask application
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
 
 # Define the User model (modified to include the relationship)
 class User(db.Model):
@@ -455,5 +449,6 @@ def mark_important(goal_id):
     flash("Goal status updated.", "success")
     return redirect(url_for('dashboard'))
 
+# Run the Flask application
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")))
