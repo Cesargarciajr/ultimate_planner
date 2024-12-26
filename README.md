@@ -1,10 +1,12 @@
 <h1 align="center"><a href="https://ultimate-planner-c321a2415a86.herokuapp.com/" target="_blank">The Ultimate Planner</a></h1> 
 
-The Ultimate Planner is a comprehensive tool for organizing your life, breaking down big goals, and staying on track with personalized categories and progress tracking. Whether you're planning for a year, semester, or month, this intuitive platform helps you achieve more, stay motivated, and boost productivity by neatly categorizing and tracking goals in areas such as Health, Finance, and Career. Developed as Final Project of the CS50x/2024 Introduction to Computer Science at <a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank"><img src="static/images/docs/harvard_logo.png" heigth="50" width="100" alt="Havard Online"></a>
+The Ultimate Planner is a comprehensive tool for organizing your life, breaking down big goals, and staying on track with personalized categories and progress tracking. Whether you're planning for a year, semester, or month, this intuitive platform helps you achieve more, stay motivated, and boost productivity by neatly categorizing and tracking goals in areas such as Health, Finance, and Career. Developed as Final Project of the CS50x/2024 Introduction to Computer Science at 
+<br>
+<a align="center" href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank"><img src="static/images/docs_imgs/harvard_logo.png" heigth="25" width="100" alt="Havard Online"></a>
 
 [**Live Demo: The Ultimate Planner**](https://ultimate-planner-c321a2415a86.herokuapp.com/)
 
-![Alt text](hero gif "Hero gif for Readme File")
+![Alt text](static/images/docs_imgs/ultimate_planner.gif "Hero gif for Readme File")
 
 
 # Contents
@@ -18,13 +20,13 @@ The Ultimate Planner is a comprehensive tool for organizing your life, breaking 
     - [Wireframes](#wireframes)
   - [Features](#features)
     - [Landing Page](#landing-page)
-    - [Register](#register)
-    - [Log In](#log-in)
-    - [Dashboard](#dashboard)
-    - [Add Category](#add-category)
-    - [Edit Category](#edit-category)
-    - [Add Goal](#add-goal)
-    - [Edit Goal](#edit-goal)
+    - [Register](#register-page)
+    - [Log In](#login-page)
+    - [Dashboard](#dashboard-page)
+    - [Add Category](#add-category-page)
+    - [Edit Category](#edit-category-page)
+    - [Add Goal](#add-goal-page)
+    - [Edit Goal](#edit-goal-page)
     - [Future Features](#future-features)
   - [Marketing Strategies](#marketing-strategies)
   - [Testing](#testing)
@@ -100,8 +102,7 @@ The database flowchart provided critical insights into the relationships between
 - **Constraints**:
   Additional constraints ensure the integrity of the database. For example, fields like `user_name` and `category_name` can be defined as `unique` or `not null`.
 
-[Back to top](#contents)
-
+  [Back to top](#contents)
 ---
 
 ### Design Choices
@@ -111,6 +112,66 @@ The app design embraces simplicity and functionality, ensuring an intuitive user
 ![Alt text](color-palette-image "Color Palette")
 
 [Back to top](#contents)
+
+---
+
+### Wireframes
+  - **Landing Page**:
+    ![Alt text](landing-page-wf-image "landing-wf page image")
+
+  - **Dashboard**:
+    ![Alt text](dashboard-wf-image "dashboard-wf image")
+
+   - **Add Category/Goal**:
+    ![Alt text](add-wf-image "addwf image")
+
+      [Back to top](#contents)
+---
+
+### Features
+  - #### **Landing Page**
+      ![Alt text](landing-page "landing-page image")
+
+      [Back to top](#contents)
+
+  - #### **Register Page**
+      ![Alt text](register-page "register-page image")
+      
+      [Back to top](#contents)
+
+  - #### **Login Page**
+      ![Alt text](login-page "login-page image")
+      
+      [Back to top](#contents)
+
+  - #### **Dashboard Page**
+      ![Alt text](dashboard-page "dashboard-page image")
+      
+      [Back to top](#contents)
+
+  - #### **Add Category Page**
+      ![Alt text](add-category-page "add-category-page image")
+      
+      [Back to top](#contents)
+
+  - #### **Edit Category Page**
+      ![Alt text](edit-category-page "edit-category-page image")
+      
+      [Back to top](#contents)
+
+  - #### **Add Goal Page**
+      ![Alt text](add-goal-page "add-goal-page image")
+      
+      [Back to top](#contents)
+
+  - #### **Edit Goal Page**
+      ![Alt text](edit-goal-page "edit-goal-page image")
+      
+      [Back to top](#contents)
+
+  ### **Future Features**
+      
+  [Back to top](#contents)
 
 ---
 
@@ -156,8 +217,7 @@ While developing, some sensitive keys were accidentally pushed to GitHub. Howeve
 
 By [**Cesar Garcia**](https://github.com/Cesargarciajr)
 
----
 
-# <a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank"><img src="static/images/docs/harvard_logo.png" heigth="50" width="100" alt="Havard Online"></a> THANK YOU!
+# <a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank"><img src="static/images/docs_imgs/harvard_logo.png" heigth="50" width="100" alt="Havard Online"></a> THANK YOU!
 
 [Back to top](#contents)
