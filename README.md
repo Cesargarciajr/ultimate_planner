@@ -1,6 +1,6 @@
 <h1 align="center"><a href="https://ultimate-planner-c321a2415a86.herokuapp.com/" target="_blank">The Ultimate Planner</a></h1> 
 
-The Ultimate Planner is a comprehensive tool for organizing your life, breaking down big goals, and staying on track with personalized categories and progress tracking. Whether you're planning for a year, semester, or month, this intuitive platform helps you achieve more, stay motivated, and boost productivity by neatly categorizing and tracking goals in areas such as Health, Finance, and Career.
+The Ultimate Planner is a comprehensive tool for organizing your life, breaking down big goals, and staying on track with personalized categories and progress tracking. Whether you're planning for a year, semester, or month, this intuitive platform helps you achieve more, stay motivated, and boost productivity by neatly categorizing and tracking goals in areas such as Health, Finance, and Career. Developed as Final Project of the CS50x/2024 Introduction to Computer Science at <a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank"><img src="static/images/docs/harvard_logo.png" heigth="50" width="100" alt="Havard Online"></a>
 
 [**Live Demo: The Ultimate Planner**](https://ultimate-planner-c321a2415a86.herokuapp.com/)
 
@@ -158,6 +158,6 @@ By [**Cesar Garcia**](https://github.com/Cesargarciajr)
 
 ---
 
-# THANK YOU!
+# <a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank"><img src="static/images/docs/harvard_logo.png" heigth="50" width="100" alt="Havard Online"></a> THANK YOU!
 
 [Back to top](#contents)
