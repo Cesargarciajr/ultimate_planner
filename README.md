@@ -578,6 +578,7 @@ I used the following technologies, platforms and support in building my project:
 - [**Heroku**](https://www.heroku.com/platform) - was used for application deployment.
 - [**Elephant SQL**](https://www.elephantsql.com/) - for database.
 - [**ScreenToGif**](https://www.screentogif.com/) - generate HERO gif of the readme file
+- [**Google Chrome Lighthouse Developer Tool**](https://developer.chrome.com/docs/lighthouse/overview) - Test and report bugs and issues
 - [**Db Diagram**](https://dbdiagram.io/) - flowchart used on readme file.
 - [**CS50 AI**](https://cs50.ai/) - helped me better understand concepts and solve many issues as a tutor
 - [**Chat GPT**](https://chatgpt.com/) - generate text, correct grammar errors
