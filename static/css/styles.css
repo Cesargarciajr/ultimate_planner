@@ -34,6 +34,11 @@ html, body {
     color: #000; /* Optional: Change the text color if needed */
 }
 
+.harvard-logo {
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
 /* Custom styles for nav tabs on mobile */
 @media (max-width: 576px) {
     .nav-tabs {

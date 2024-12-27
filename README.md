@@ -6,11 +6,11 @@ One valuable lesson I’ve learned from programming is to break down complex cha
 
 The Ultimate Planner was developed as my **Final Project** for the **`CS50x 2024`**: **`Introduction to Computer Science`** course at: 
 <br>
-<center align="center">
-  <a align="center" href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank">
+<h1 align="center">
+  <a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank">
     <img src="static/images/docs_imgs/harvard_logo.png" height="50" width="175" alt="Harvard Online">
   </a>
-</center>
+</h1>
 
 [**Live Demo: The Ultimate Planner**](https://ultimate-planner-c321a2415a86.herokuapp.com/)
 
@@ -360,7 +360,7 @@ Color palette designed by [**Coolors**](https://coolors.co/)
   - Lighthouse was used to test for Performance, Accessibility, Best Practices, and SEO, with improvements made to enhance scores where necessary.
   - WAVE was utilized to test for accessibility issues, and adjustments were made to improve usability for users with assistive technologies.
   
-    [Back to top](#contents)
+  [Back to top](#contents)
 
   ## ⚒️ Manual Testing
 
@@ -376,7 +376,9 @@ Color palette designed by [**Coolors**](https://coolors.co/)
   | User Login               | Submit the login form with correct and incorrect credentials.                                                   | Correct credentials log the user in and redirect them to the dashboard; incorrect credentials display an error message. |
   | User Logout              | Log in and then navigate to `/logout`.                                                                          | The user session is cleared, and the user is redirected to the login page.                              |
   | Access Unauthorized Page | Attempt to access `/dashboard` without logging in.                                                              | User should be redirected to the login page with an appropriate error message.                          |
+
   [Back to top](#contents)
+
 </details>
 <details>
 <summary>👤 User Model Testing - Verify the User model behavior and constraints.</summary>
@@ -454,11 +456,37 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 [Back to top](#contents)
 </details>
 
+  ### 🗼Google Lighthouse tests
+
+  <details>
+  <summary> Landing Page</summary>
+    <img src="static/images/docs_imgs/lighthouse_landing.png" alt="lighhouse_report">
+  </details>
+  <details>
+  <summary> Register Page</summary>
+    <img src="static/images/docs_imgs/lighthouse_register.png" alt="lighhouse_report">
+  </details>
+  <details>
+  <summary> Login Page</summary>
+    <img src="static/images/docs_imgs/lighthouse_login.png" alt="lighhouse_report">
+  </details>
+  <details>
+  <summary> Add Category Page</summary>
+    <img src="static/images/docs_imgs/lighthouse_add_category.png.png" alt="lighhouse_report">
+  </details>
+  <details>
+  <summary> Add Goal Page</summary>
+    <img src="static/images/docs_imgs/lighthouse_add_goal.png" alt="lighhouse_report">
+  </details>
+  <details>
+  <summary> Dashboard Page</summary>
+    <img src="static/images/docs_imgs/lighthouse_dashboard.png" alt="lighhouse_report">
+  </details>
 ---
 
 
 ## 🪲 Bugs and Issues
-While developing, some sensitive keys were accidentally pushed to GitHub. However, they were promptly regenerated and securely added as environment variables on the Heroku platform.
+While developing, some sensitive keys were accidentally pushed to GitHub. However, they were promptly regenerated and securely added as environment variables on the Heroku platform. Any other bugs were troubleshooted and addressed while developing the application.
 
 ## 🛡️ Code Validation
 - **HTML:** Checked via [W3C Validator](https://validator.w3.org/).
@@ -470,68 +498,68 @@ While developing, some sensitive keys were accidentally pushed to GitHub. Howeve
 
 # 🌐 Deployment
 
-### 📌 Local Deployment  
-1. Clone the repository from GitHub by clicking the "Code" button and copying the URL.
-2. Open your preferred IDE and start a terminal session in the directory where you want to clone the repository.
-3. Type `git clone` followed by the URL you copied in step 1 and press Enter.
-4. Navigate into the project directory using `cd [project_name]`.
-5. Create and activate a virtual environment:
-    ```bash
-    python -m venv venv
-    source venv/bin/activate   # On macOS/Linux
-    venv\Scripts\activate      # On Windows
-    ```
-6. Install the required dependencies by typing:
-    ```bash
-    pip install -r requirements.txt
-    ```
-7. Set up environment variables by creating an `.env` file in the root directory. See [Environment Variables](#environment-variables) for more details.
-8. Initialize the database:
-    ```bash
-    flask db upgrade
-    ```
-9. Run the application:
-    ```bash
-    flask run
-    ```
-10. Open the application in your browser using the link provided in the terminal (usually `http://127.0.0.1:5000`).
+  ### 📌 Local Deployment  
+  1. Clone the repository from GitHub by clicking the "Code" button and copying the URL.
+  2. Open your preferred IDE and start a terminal session in the directory where you want to clone the repository.
+  3. Type `git clone` followed by the URL you copied in step 1 and press Enter.
+  4. Navigate into the project directory using `cd [project_name]`.
+  5. Create and activate a virtual environment:
+      ```bash
+      python -m venv venv
+      source venv/bin/activate   # On macOS/Linux
+      venv\Scripts\activate      # On Windows
+      ```
+  6. Install the required dependencies by typing:
+      ```bash
+      pip install -r requirements.txt
+      ```
+  7. Set up environment variables by creating an `.env` file in the root directory. See [Environment Variables](#environment-variables) for more details.
+  8. Initialize the database:
+      ```bash
+      flask db upgrade
+      ```
+  9. Run the application:
+      ```bash
+      flask run
+      ```
+  10. Open the application in your browser using the link provided in the terminal (usually `http://127.0.0.1:5000`).
 
----
+  ---
 
-### 💜 Heroku Deployment
-1. Create a Heroku account at [https://heroku.com](https://heroku.com) if you don’t already have one.
-2. Log in to the Heroku dashboard and click "New" > "Create new app."
-3. Enter a unique name for your app and choose the appropriate region.
-4. In the "Deploy" tab, connect your GitHub repository to the app.
-5. Add the necessary buildpacks in the following order:
-    - `heroku/python`
-    - `heroku/nodejs`
-6. Navigate to the "Settings" tab and configure the required environment variables under "Config Vars":
-    - **`PORT`**: 8000  
-    - **`DATABASE_URL`**: Your PostgreSQL database URL.  
-    - **`SECRET_KEY`**: A secret key for your application.  
-7. Enable automatic deploys from the "Deploy" tab and deploy the app manually by clicking "Deploy Branch."
-8. Once the deployment is complete, click "Open App" to access your live application.
-
-
-### 📐 Environment Variables
-  #### 📌 Local Environment:
-  - Create a `.env` file in the root directory of the project and add the following environment variables:
-      - **`DATABASE_URL`**: The URL for your PostgreSQL database.
-      - **`SECRET_KEY`**: A random, secure secret key for the application.
-
-  #### 💜 Heroku Environment:
-  - Set the environment variables through the Heroku dashboard under "Config Vars" in the "Settings" tab:
+  ### 💜 Heroku Deployment
+  1. Create a Heroku account at [https://heroku.com](https://heroku.com) if you don’t already have one.
+  2. Log in to the Heroku dashboard and click "New" > "Create new app."
+  3. Enter a unique name for your app and choose the appropriate region.
+  4. In the "Deploy" tab, connect your GitHub repository to the app.
+  5. Add the necessary buildpacks in the following order:
+      - `heroku/python`
+      - `heroku/nodejs`
+  6. Navigate to the "Settings" tab and configure the required environment variables under "Config Vars":
       - **`PORT`**: 8000  
-      - **`DATABASE_URL`**: The PostgreSQL database URL provided by the Heroku PostgreSQL add-on.  
-      - **`SECRET_KEY`**: The secret key for your application.
+      - **`DATABASE_URL`**: Your PostgreSQL database URL.  
+      - **`SECRET_KEY`**: A secret key for your application.  
+  7. Enable automatic deploys from the "Deploy" tab and deploy the app manually by clicking "Deploy Branch."
+  8. Once the deployment is complete, click "Open App" to access your live application.
 
-  #### 🖇️ GitHub Pages Deployment
-  1. Create a repository on GitHub if you haven’t already.
-  2. Commit your code and push it to the GitHub repository.
-  3. Navigate to the "Settings" tab of your repository.
-  4. Scroll down to the "Pages" section and select a branch (usually `main`) and the root folder for deployment.
-  5. Save the changes, and GitHub Pages will generate a link to access your application.
+
+  ### 📐 Environment Variables
+    #### 📌 Local Environment:
+    - Create a `.env` file in the root directory of the project and add the following environment variables:
+        - **`DATABASE_URL`**: The URL for your PostgreSQL database.
+        - **`SECRET_KEY`**: A random, secure secret key for the application.
+
+    #### 💜 Heroku Environment:
+    - Set the environment variables through the Heroku dashboard under "Config Vars" in the "Settings" tab:
+        - **`PORT`**: 8000  
+        - **`DATABASE_URL`**: The PostgreSQL database URL provided by the Heroku PostgreSQL add-on.  
+        - **`SECRET_KEY`**: The secret key for your application.
+
+    #### 🖇️ GitHub Pages Deployment
+    1. Create a repository on GitHub if you haven’t already.
+    2. Commit your code and push it to the GitHub repository.
+    3. Navigate to the "Settings" tab of your repository.
+    4. Scroll down to the "Pages" section and select a branch (usually `main`) and the root folder for deployment.
+    5. Save the changes, and GitHub Pages will generate a link to access your application.
 
   [Back to top](#contents)
 

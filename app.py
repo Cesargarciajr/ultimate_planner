@@ -62,10 +62,6 @@ class Goal(db.Model):
     def __repr__(self):
         return f"Goal('{self.goal_id}', '{self.goal_name}', '{self.goal_description}', '{self.goal_important}', '{self.goal_done}', '{self.goal_timeframe_selection}')"
 
-# Create the database and tables (run this only once, e.g., manually or in setup)
-def create_db():
-    with app.app_context():
-        db.create_all()
 
 # Define route for the home page
 @app.route("/")
