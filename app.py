@@ -14,21 +14,24 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:/
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, but recommended to disable
 app.secret_key = os.environ.get("SECRET_KEY")
 
+
 # Initialize the database
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
 
 # Define the User model (modified to include the relationship)
 class User(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(128), nullable=False)
-    
+
     # Relationship with categories
     categories = db.relationship('Category', backref='user', lazy=True)
 
     def __repr__(self):
         return f"User('{self.user_id}', '{self.user_name}')"
+
 
 # Define the Category model with unique color
 class Category(db.Model):
@@ -45,8 +48,10 @@ class Category(db.Model):
     def __repr__(self):
         return f"Category('{self.category_id}', '{self.category_name}', '{self.category_color}')"
 
+
 # Define allowed timeframes for goals
 ALLOWED_TIMEFRAMES = ['year', 'semester', 'trimester', 'month']
+
 
 # Define the Goal model
 class Goal(db.Model):
@@ -68,6 +73,7 @@ class Goal(db.Model):
 def index():
     """Home template running"""
     return render_template("index.html")
+
 
 # Define route for the registration page
 @app.route('/register', methods=['GET', 'POST'])
@@ -98,6 +104,7 @@ def register():
         return redirect(url_for("login"))
     return render_template("register.html")
 
+
 # Define route for the login page
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -120,6 +127,7 @@ def login():
             return redirect(url_for("login"))
     return render_template("login.html")
 
+
 # Define route for the logout page
 @app.route("/logout")
 def logout():
@@ -127,6 +135,7 @@ def logout():
     session.clear()
     flash("Logged out successfully!", "success")
     return redirect(url_for("login"))
+
 
 # Define route for the dashboard page
 @app.route('/dashboard')
@@ -149,6 +158,7 @@ def dashboard():
         print("Goal Timeframe Selection:", goal.goal_timeframe_selection)
 
     return render_template('dashboard.html', username=user.user_name, categories=categories, goals=goals)
+
 
 # Define route for the add category page
 @app.route('/add-category', methods=['GET', 'POST'])
@@ -197,6 +207,7 @@ def add_category():
 
     return render_template('add_category.html', categories=categories)
 
+
 # Define route for the edit category page
 @app.route('/edit-category/<int:category_id>', methods=['GET', 'POST'])
 def edit_category(category_id):
@@ -238,6 +249,7 @@ def edit_category(category_id):
 
     return render_template('edit_category.html', category=category)
 
+
 # Define route for the delete category page
 @app.route('/delete-category/<int:category_id>', methods=['POST'])
 def delete_category(category_id):
@@ -258,6 +270,7 @@ def delete_category(category_id):
 
     flash("Category deleted successfully.", "success")
     return redirect(url_for('dashboard'))
+
 
 # Define route for the add goal page
 @app.route('/add-goal', methods=['GET', 'POST'])
@@ -313,6 +326,7 @@ def add_goal():
 
     return render_template('add_goal.html', categories=categories)
 
+
 # Define route for the edit goal page
 @app.route('/edit-goal/<int:goal_id>', methods=['GET', 'POST'])
 def edit_goal(goal_id):
@@ -338,10 +352,10 @@ def edit_goal(goal_id):
         goal_description = request.form['goal_description'].strip()
         goal_important = 'goal_important' in request.form  # Checkbox will be in the form as 'goal_important'
         goal_done = 'goal_done' in request.form  # Checkbox will be in the form as 'goal_done'
-        
+
         # Time slot value from the form, ensure it's lowercased
         goal_timeframe_selection = request.form['goal_timeframe_selection'].lower()  # Convert to lowercase
-        
+
         # Validate that a valid category is selected
         category = Category.query.get(category_id)
         if not category or category.user_id != user.user_id:
@@ -369,6 +383,7 @@ def edit_goal(goal_id):
 
     return render_template('edit_goal.html', goal=goal, categories=categories)
 
+
 # Define route for the delete goal page
 @app.route('/delete-goal/<int:goal_id>', methods=['POST'])
 def delete_goal(goal_id):
@@ -390,6 +405,7 @@ def delete_goal(goal_id):
 
     flash("Goal deleted successfully.", "success")
     return redirect(url_for('dashboard'))
+
 
 # Define route for marking a goal as done
 @app.route('/mark-done/<int:goal_id>', methods=['POST'])
@@ -414,6 +430,7 @@ def mark_done(goal_id):
     flash("Goal status updated.", "success")
     return redirect(url_for('dashboard'))
 
+
 # Define route for marking a goal as important
 @app.route('/mark-important/<int:goal_id>', methods=['POST'])
 def mark_important(goal_id):
@@ -437,6 +454,7 @@ def mark_important(goal_id):
     flash("Goal status updated.", "success")
     return redirect(url_for('dashboard'))
 
+
 # Run the Flask application
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

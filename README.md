@@ -295,8 +295,9 @@ Color palette designed by [**Coolors**](https://coolors.co/)
   - **Dashboard**:
     ![Alt text](dashboard-wf-image "dashboard-wf image")
 
-   - **Add Category/Goal**:
+  - **Add/Edit Category/Goal**:
     ![Alt text](add-wf-image "addwf image")
+
 
       [Back to top](#contents)
 ---
@@ -456,7 +457,9 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 [Back to top](#contents)
 </details>
 
-  ### 🗼Google Lighthouse tests
+  ### 🗼Google Lighthouse Tests
+
+  All Google lighthouse reports passed with minor issues mostly related to Bootstrap CDN and libraries. All reports where considered as success citeria. The reports can be found below:
 
   <details>
   <summary> Landing Page</summary>
@@ -472,11 +475,19 @@ Color palette designed by [**Coolors**](https://coolors.co/)
   </details>
   <details>
   <summary> Add Category Page</summary>
-    <img src="static/images/docs_imgs/lighthouse_add_category.png.png" alt="lighhouse_report">
+    <img src="static/images/docs_imgs/lighthouse_add_category.png" alt="lighhouse_report">
+  </details>
+  <details>
+  <summary> Edit Category Page</summary>
+    <img src="static/images/docs_imgs/lighthouse_edit_category.png" alt="lighhouse_report">
   </details>
   <details>
   <summary> Add Goal Page</summary>
     <img src="static/images/docs_imgs/lighthouse_add_goal.png" alt="lighhouse_report">
+  </details>
+  <details>
+  <summary> Edit Goal Page</summary>
+    <img src="static/images/docs_imgs/lighthouse_edit_goal.png" alt="lighhouse_report">
   </details>
   <details>
   <summary> Dashboard Page</summary>
@@ -489,9 +500,35 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 While developing, some sensitive keys were accidentally pushed to GitHub. However, they were promptly regenerated and securely added as environment variables on the Heroku platform. Any other bugs were troubleshooted and addressed while developing the application.
 
 ## 🛡️ Code Validation
-- **HTML:** Checked via [W3C Validator](https://validator.w3.org/).
-- **CSS:** Validated using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
-- **Python:** Linting performed using Flake8.
+- **HTML:** Checked via [W3C Validator](https://validator.w3.org/). Reports below:
+<br>
+  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2F" target="_blank">**Landing Page**</a>
+  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fregister" target="_blank">**Register Page**</a>
+  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Flogin" target="_blank">**Login Page**</a>
+  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-category" target="_blank">**Add Category Page**</a>
+  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fedit-category%2F11" target="_blank">**Edit Category Page**</a>
+  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-goal" target="_blank">**Add Goal Page**</a>
+  - <a href="https://ultimate-planner-c321a2415a86.herokuapp.com/edit-goal/23" target="_blank">**Edit Goal Page**</a>
+  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fdashboard" target="_blank">**Dashboard Page**</a>
+
+  A recurring issue was identified where a `<div>` was used in place of a `<li>` element. However, this is not a critical issue and does not affect performance. The design is based on the Bootstrap navbar template.
+
+  <img src="static/images/docs_imgs/html_error.png" alt="HTML Error">
+
+<br>
+
+- **CSS:** Validated using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).Reports below:
+<br>
+  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en">**Landing Page**</a>
+  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fregister&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Register Page**</a>
+  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Flogin&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Login Page**</a>
+  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-category&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Add Category Page**</a>
+  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fedit-category%2F11&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Edit Category Page**</a>
+  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-goal&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Add Goal Page**</a>
+  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fedit-goal%2F23&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Edit Goal Page**</a>
+  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fdashboard&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Dashboard Page**</a>
+
+- **Python:** linting was conducted using Flake8, with no significant issues identified apart from a few instances of lines exceeding the recommended length
 
 [Back to top](#contents)
 
@@ -612,6 +649,14 @@ I used the following technologies, platforms and support in building my project:
 ---
 
 # 🙏 Acknowledgments
+
+## Acknowledgments
+
+I would like to express my heartfelt gratitude to the entire **CS50 team**, especially **David J. Malan**, for their incredible dedication and passion for teaching. This project is a culmination of everything I have learned so far in the course, and it reflects the invaluable lessons and skills imparted throughout.
+
+A special thanks to **Harvard University**, **Harvard Online**, and **edX** for making this transformative learning experience accessible. The journey through this project challenged me to think critically, solve problems creatively, and deepen my understanding of web programming with Python.
+
+This project not only allowed me to apply my knowledge but also gave me the opportunity to explore designing and building a project from scratch, further solidifying my learning and appreciation for the art of programming.
 
 By [**Cesar Garcia**](https://github.com/Cesargarciajr)
 
