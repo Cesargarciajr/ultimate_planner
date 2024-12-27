@@ -304,49 +304,300 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 
 # 🌟 Features
   - #### 🏠 **Landing Page**
-      ![Alt text](landing-page "landing-page image")
 
-      [Back to top](#contents)
+    The landing page of the web application is thoughtfully designed to provide users with a seamless and engaging experience. It includes the following features:
+
+    - **Branding and Navigation**: The homepage prominently displays the **"Ultimate Planner"** branding, which also functions as a clickable **Home button**. If the user is logged in, clicking this button redirects them to their **Dashboard**.
+
+    - **User-Friendly Navbar**: The navigation bar adapts to the user's login state:
+      - **Logged Out**: Displays options for **Home**, **Register**, and **Login** for easy navigation.
+      - **Logged In**: Replaces the **Register** and **Login** buttons with a **Logout** button for streamlined access.
+
+    - **"Start Now" Call-to-Action (CTA)**: 
+      - **Logged In**: Clicking the button directs users to their **Dashboard** for immediate access to their goals and categories.
+      - **Logged Out**: Clicking the button redirects users to the **Login page**, encouraging them to log in or register.
+
+    - **Hero Section**: A visually appealing hero image enhances the overall aesthetics and creates a welcoming, user-friendly interface, fostering a positive first impression for visitors.
+
+    This design ensures smooth navigation, clear user flow, and a visually engaging experience for all users, regardless of their login state.
+
+    ![Alt text](static/images/docs_imgs/landing.png "landing-page image")
+
+    The **Content Section** serves as an informative hub that provides a comprehensive overview of the application and its unique offerings. It is designed to captivate users with a blend of functionality and aesthetics, including:
+
+    - **Detailed Application Insights**: Clearly explains the key features and benefits of the application, helping users understand its purpose and value.
+
+    - **Why Choose Us**: Highlights the application's standout qualities and advantages, showcasing how it can enhance productivity and goal tracking.
+
+    - **User-Friendly Design**: Incorporates visually appealing **icons** to represent features and functionalities, making the content easy to understand and visually engaging.
+
+    - **Mobile Responsiveness**: The entire section is fully optimized for mobile devices, ensuring a seamless experience across different screen sizes and orientations.
+
+    This section is thoughtfully crafted to cater to users' informational needs while maintaining an appealing and accessible design for all devices.
+
+    ![Alt text](static/images/docs_imgs/landing_description.png "landing-page image")
+  The **Footer** serves as a concise and informative section at the bottom of the application, providing users with additional resources and context. Key elements include:
+
+    - **Social Media Links**: Includes clickable icons that direct users to the application's official social media pages, fostering connectivity and engagement. All external links within the application are configured with `target="_blank"`. This ensures that they open in a new browser tab, enhancing the user experience by allowing users to access additional resources without navigating away from the current page. This approach maintains seamless interaction with the application while providing convenient access to external content.
+
+    - **Developed By**: Displays a credit line acknowledging the developer or team behind the application, adding a personal and professional touch.
+
+    - **Purpose of the Application**: Briefly reiterates the core objective of the application, ensuring users understand its value and intended use.
+
+    The **Footer** is designed to be both functional and visually appealing, complementing the overall user experience while maintaining a professional appearance.
+
+    ![Alt text](static/images/docs_imgs/landing_footer.png "landing-page image")
+
+
+    [Back to top](#contents)
 
   - #### 📝 **Register Page**
-      ![Alt text](register-page "register-page image")
-      
-      [Back to top](#contents)
+      The **Register Page** includes the **navbar** and **footer**, as previously detailed in the [Landing Page](#landing-page) section of this documentation.
 
-  - #### 🔑 **Login Page**
-      ![Alt text](login-page "login-page image")
-      
-      [Back to top](#contents)
+    #### Overview:
+    The page features a clean, well-organized, and user-friendly form, designed for simplicity and efficiency. It allows users to quickly register their accounts while ensuring security and privacy for their **categories** and **goals** within the application.
 
-  - #### 📊 **Dashboard Page**
-      ![Alt text](dashboard-page "dashboard-page image")
-      
-      [Back to top](#contents)
+    #### Key Features:
+    - **User-Friendly Design**: 
+      - A straightforward and intuitive layout for effortless registration.
+      - **Privacy Protection**: Ensures that user-specific data, such as categories and goals, remains secure.
+    - **Error Handling**:
+      - If passwords do not match or any fields are left blank, an error message is displayed, notifying the user that something went wrong and prompting them to try again.
 
-  - #### ➕  **Add Category Page**
-      ![Alt text](add-category-page "add-category-page image")
-      
-      [Back to top](#contents)
+    - **Automatic Redirection**: Upon successful registration, the user is automatically redirected to the **Login Page** for immediate access to their account.
+    - **Fully Responsive**: The page is fully optimized for mobile devices, providing a seamless experience across different screen sizes.
 
-  - #### 🖊️ **Edit Category Page**
-      ![Alt text](edit-category-page "edit-category-page image")
-      
-      [Back to top](#contents)
+    This approach guarantees a smooth, secure, and frustration-free registration process, enhancing usability for all users.
 
-  - #### 🎯 **Add Goal Page**
-      ![Alt text](add-goal-page "add-goal-page image")
-      
-      [Back to top](#contents)
-
-  - #### ✏️ **Edit Goal Page**
-      ![Alt text](edit-goal-page "edit-goal-page image")
-      
-      [Back to top](#contents)
-
-  ### 🚀 **Future Features**
+  ![Alt text](static/images/docs_imgs/register.png "register-page image")
       
   [Back to top](#contents)
 
+  - #### 🔑 **Login Page**
+    The **Login Page** incorporates the **navbar** and **footer** features, as previously detailed in the [Landing Page](#landing-page) section of this documentation.
+
+    #### Key Features:
+    - **Neat and User-Friendly Design**: The form is styled using **Bootstrap**, ensuring a clean and accessible interface for users.
+    - **Direct Link to Register Page**: If a user accidentally accesses the login page without having an account, a clear and direct link allows them to navigate to the **Register Page** seamlessly.
+    - **Error Handling**: If the user submits incorrect or incomplete information, a clear message is displayed, indicating that something went wrong and prompting them to try again.
+    - **Responsive Design**: The page is fully optimized for mobile devices, ensuring a smooth login experience on all screen sizes.
+
+    This page is designed to make logging in quick, intuitive, and frustration-free for all users.
+
+    ![Alt text](static/images/docs_imgs/login.png "login-page image")
+      
+    [Back to top](#contents)
+
+  - #### 📊 **Dashboard Page**
+    The **Dashboard Page** is accessible only to logged-in users and provides a personalized and welcoming environment. 
+
+    ### Key Features:
+    - **Dynamic Navbar**: 
+      - For logged-in users, the **Register** and **Login** buttons are replaced with a **Logout** button for seamless navigation and account management.
+    - **Personalized Greeting**: 
+      - Displays the user's name with a friendly message to create a welcoming and personalized experience.
+    - **Quick Access Buttons**: 
+      - **Add Category**: Directs users to the **Add Categories** page for quick and easy category creation.
+      - **Add Goals**: Redirects users to the **Add Goals** page to start setting up their goals efficiently.
+    - **Step-by-Step Guide**: 
+      - Includes an informative box with a **how-to guide**, detailing the step-by-step process for using the application. This feature ensures users understand how to get started and make the most out of the platform.
+    - **"Start Plan" Button**:
+      - A prominent **Start Plan** button is provided, which redirects users to the first step: adding categories. This guides users through the initial setup process seamlessly.
+
+    #### Responsive Design:
+    - The **Dashboard Page** is fully optimized for mobile devices, ensuring a smooth and user-friendly experience across all screen sizes.
+
+    This structure ensures a welcoming, intuitive, and engaging user experience while facilitating efficient navigation and use of the application.
+
+    ![Alt text](static/images/docs_imgs/dashboard_empty.png "dashboard-page image")
+
+      Once categories and goals are added:
+    - **Timeframe Selection Box**:
+      - Includes tabs for **Year**, **Semester**, **Trimester**, and **Month** to organize and view goals within specific timeframes.
+    - **Populated Categories**:
+      - Each category is displayed with its associated goals, categorized correctly by the selected timeframe.
+      - **Goal Display**:
+  - Goals are initially displayed as dropdown items under their respective categories.
+  - Clicking on a goal reveals:
+    - **Success Criteria**: Displays specific criteria for achieving the goal.
+    - **Action Buttons**:
+      1. **Mark as Done**: Adds a ✅ icon beside the goal name to indicate completion.
+      2. **Mark as Important**: Adds a ❗ icon beside the goal name to highlight its importance.
+      3. **Edit**: Redirects the user to the **Edit Goal** page for modifications.
+      4. **Delete**: Prompts a confirmation message to ensure the user wants to delete the goal.
+  - **Responsive Design**:
+    - The dropdown elements adjust dynamically based on screen size and the number of goals in each category.
+  - ⚠️ Empty Category Message
+    - If a category has no goals yet:
+      - A message is displayed stating, "No goals have been added to this category yet."
+  - 🔔 Flash Messages
+    - **Flash Messages**:
+      - At the top of the page, users are notified of the success or failure of actions, such as adding, editing, or deleting goals or categories.
+
+    This design ensures an intuitive, user-friendly, and fully responsive dashboard, making it easy for users to track and manage their goals effectively.
+
+    ![Alt text](static/images/docs_imgs/dashboard.png "dashboard-page image")
+      
+    [Back to top](#contents)
+
+  - #### ➕  **Add Category Page**
+    The **Add Category Page** provides a simple and intuitive interface for creating new categories, ensuring a smooth user experience. Below is a detailed overview of its features:
+
+    #### Key Features
+
+    - **User-Friendly Form**:
+      - Allows users to input a name for the new category.
+      - Automatically generates a **random and unique color** for each category.
+        - The color can be edited later through the **Edit Category** page.
+      - Ensures **uniqueness**:
+        - **Category names** and **colors** cannot be duplicated for the same user.
+        - Categories and their assigned colors are unique **per user** and are consistent across all timeframe selections.
+    #### Category Display
+
+    - **Category Buttons**:
+      - Once categories are created, they are displayed below the form as clickable buttons.
+      - Each button represents a category and redirects to the **Edit Category Page** for further customization.
+    - **Empty State**:
+      - If no categories have been added:
+        - A message is displayed: *"No categories have been added yet."*
+
+    This design ensures that users can efficiently create, manage, and customize their categories, laying a solid foundation for goal organization across different timeframe selections.
+
+    ![Alt text](/static/images/docs_imgs/add_category_empty.png "add-category-page image")
+
+    ![Alt text](/static/images/docs_imgs/add_category.png "add-category-page image")
+      
+    [Back to top](#contents)
+
+  - #### 🖊️ **Edit Category Page**
+    The **Edit Category Page** allows users to modify their existing categories easily and intuitively. Below are the key functionalities and features of this page:
+
+    #### Key Features
+
+    - **Data Retrieval**:
+      - Displays the current **name** and **color** of the selected category.
+      - Ensures that only the categories **belonging to the logged-in user** are accessible for editing.
+
+    - **Editable Form**:
+      - Users can:
+        - Update the **name** of the category.
+        - Change the **color** using an intuitive **color picker**.
+      - Clicking on the color picker opens a **color selection box**, allowing for a seamless update of the category's color.
+
+    #### Action Buttons
+
+    - **Save Changes**:
+      - Updates the category details in the database and reflects the changes immediately.
+
+    - **Cancel**:
+      - Redirects the user back to the **Dashboard** without making any changes.
+
+    - **Delete Category**:
+      - Deletes the selected category.
+      - Before deletion, a **confirmation alert** is displayed to ensure the user wants to proceed with the action.
+
+    This page ensures a smooth and secure editing experience, giving users complete control over their category customization while maintaining data integrity and user-specific access.
+
+    ![Alt text](static/images/docs_imgs/edit_category.png "edit-category-page image")
+      
+    [Back to top](#contents)
+
+  - #### 🎯 **Add Goal Page**
+
+    The **Add Goal Page** provides a streamlined and user-friendly interface for creating new goals. This page is designed to ensure simplicity and flexibility while maintaining user-specific customization.
+
+    #### Key Features:
+
+    - **Goal Name**:
+      - A required input field where the user can name their goal.
+
+    - **Category Selection**:
+      - A **dropdown menu** dynamically retrieves and displays categories previously created by the logged-in user.
+      - Ensures that users can only associate their goals with their own categories.
+
+    - **Goal Description**:
+      - A text field with a placeholder providing an example for the **success criteria** of the goal.
+      - Helps users clearly define the purpose or outcome of their goal.
+
+    - **Timeframe Selection**:
+      - A **dropdown menu** allowing users to choose the timeframe for the goal:
+        - Options include **Year**, **Semester**, **Trimester**, or **Month**.
+      - Ensures the goal is displayed correctly in the **Dashboard timeframe section**.
+
+    - **Toggle Options**:
+      - **Mark as Important**: Allows the user to mark the goal as important during creation.
+      - **Mark as Done**: Lets the user mark the goal as completed if applicable.
+
+    - #### Submission and Redirection
+      - **Add Goal Button**:
+        - Saves the goal to the database and redirects the user to the **Dashboard**.
+        - Ensures the goal is displayed in the appropriate category and timeframe.
+
+    This page is designed to provide an efficient and intuitive experience for users to create goals, ensuring clarity, flexibility, and seamless integration into their personalized dashboard.
+
+    ![Alt text](static/images/docs_imgs/add_goal.png "add-goal-page image")
+      
+    [Back to top](#contents)
+
+  - #### ✏️ **Edit Goal Page**
+
+    #### Key Features
+
+    #### Goal Form with Preloaded Data
+    - **Retrieve Existing Data**:
+      - Automatically retrieves all the data from the selected goal.
+      - Pre-fills the form with the current details for easy editing.
+
+    - **Editable Fields**:
+      - **Goal Name**: Allows users to update the name of the goal.
+      - **Category Selection**:
+        - Displays a **dropdown menu** with the user's existing categories, pre-selecting the current category for the goal.
+      - **Goal Description**:
+        - Shows the current description and allows users to make changes.
+      - **Timeframe Selection**:
+        - Displays the current timeframe (e.g., Year, Semester, Trimester, or Month) with the ability to select a different one.
+      - **Toggle Options**:
+        - **Mark as Important**: Enables users to change the goal's importance status.
+        - **Mark as Done**: Allows users to toggle the completion status.
+
+    #### Submission and Additional Features
+    - **Update Goal Button**:
+      - Updates the goal in the database with the modified details.
+      - Redirects the user back to the **Dashboard**.
+
+    ![Alt text](static/images/docs_imgs/edit_goal.png "edit-goal-page image")
+      
+    [Back to top](#contents)
+
+  ### 🚀 **Future Features**
+
+  The **Ultimate Planner** is designed with scalability in mind, and several enhancements are planned to further enrich the user experience. Below are some of the anticipated future features:
+
+---
+
+### Goal Reminders and Notifications
+- **User Story**:
+  - *"As a user, I want to receive reminders or notifications about my goals so that I can stay consistent and motivated."*
+- **Planned Implementation**:
+  - Add email or in-app notifications to remind users about upcoming or overdue goals.
+  - Allow users to set custom reminders for specific goals based on their timeframes.
+
+---
+
+### Goal-Setting Tips and Suggestions
+- **User Story**:
+  - *"As a user, I want to see tips or suggestions for setting goals and creating plans so that I can use the app effectively."*
+- **Planned Implementation**:
+  - Introduce a section with actionable tips on effective goal-setting and time management.
+  - Provide curated resources, such as articles or guides, to help users maximize productivity and achieve their objectives.
+
+---
+
+These features aim to enhance the application's usability and value, ensuring that users have the tools and resources to reach their goals effectively and stay engaged with their plans.
+      
+  [Back to top](#contents)
+<br>
+<br>
 
 # 🧪 Testing
   ### 🛰️ Overview
