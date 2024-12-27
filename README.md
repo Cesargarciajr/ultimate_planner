@@ -1,9 +1,13 @@
 <h1 align="center"><a href="https://ultimate-planner-c321a2415a86.herokuapp.com/" target="_blank">The Ultimate Planner</a></h1> 
 
-The Ultimate Planner is a comprehensive tool for organizing your life, breaking down big goals, and staying on track with personalized categories and progress tracking. Whether you're planning for a year, semester, or month, this intuitive platform helps you achieve more, stay motivated, and boost productivity by neatly categorizing and tracking goals in areas such as Health, Finance, and Career. Developed as Final Project of the CS50x/2024 Introduction to Computer Science at: 
+As the end of the year approaches, many people reflect on their accomplishments and begin setting plans and goals for the coming year. Inspired by this, I decided to develop **`The Ultimate Planner`** — a comprehensive tool designed to help users organize their lives, break down big goals, and stay on track with personalized categories and progress tracking.
+
+One valuable lesson I’ve learned from programming is to break down complex challenges into smaller, more manageable tasks. Applying this same principle to goal-setting, my project enables users to plan effectively for a year, semester, or month. This intuitive platform promotes productivity, motivation, and organization by categorizing and tracking goals across areas such as Health, Finance, and Career.
+
+The Ultimate Planner was developed as my **Final Project** for the **`CS50x 2024`**: **`Introduction to Computer Science`** course at: 
 <br>
-<center>
-  <a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank">
+<center align="center">
+  <a align="center" href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank">
     <img src="static/images/docs_imgs/harvard_logo.png" height="50" width="175" alt="Harvard Online">
   </a>
 </center>
@@ -36,17 +40,12 @@ The Ultimate Planner is a comprehensive tool for organizing your life, breaking 
   - [🧪 Testing](#testing)
     - [🛰️ Overview](#️overview)
     - [⚒️ Manual Testing](#maunal-testing)
-      - [👤 User Model Testing](#user-model-testing)
-      - [📂 Category Testing](#category-testing)
-      - [🎯 Goal Testing](#goal-testing)
-      - [🔒 Authorization Testing](#authorization-testing)
-      - [📱 Responsiveness Testing](#responsiveness-testing)
     - [🪲 Bugs and Issues](#bugs-and-issues)
+  - [🌐 Deployment](#deployment)
   - [💻 Technologies Used](#technologies-used)
-  - [🚢 Deployment](#deployment)
   - [🎖️ Credits](#credits)
     - [🖋️ Content](#content)
-    - [🖼️ Media](#media)
+    - [📸 Media](#media)
   - [🙏 Acknowledgments](#acknowledgments)
 
 
@@ -142,7 +141,7 @@ The database flowchart provided critical insights into the relationships between
   <br>
   The `Category` model represents categories created by users to organize their goals. Each category is linked to a specific user and has a unique name and color.
 
-  #### 🏷️ **Attributes**
+  ### 🏷️ **Attributes**
   - **`category_id` (Primary Key)**:
     - A unique identifier for each category.
     - Acts as the primary key for the `Category` table.
@@ -168,12 +167,13 @@ The database flowchart provided critical insights into the relationships between
   - **`unique_color_per_user`**:
     - Ensures a user cannot have two categories with the same color.
 
-  #### 🤝 **Relationships**
+  ### 🤝 **Relationships**
   - Each category belongs to a single **user** (via the `user_id` foreign key).
   - A category can have multiple **goals** associated with it.
 
-  #### 🧩 **Representation (`__repr__`)**
+  ### 🧩 **Representation (`__repr__`)**
   - Returns a string representation of the `Category` object, displaying the `category_id`, `category_name`, and `category_color`.
+
 
 </details>
 <br>
@@ -187,7 +187,7 @@ The database flowchart provided critical insights into the relationships between
   <br>
   The `Goal` model represents individual goals created by users within specific categories. Each goal is linked to a category and a user, tracking details such as importance, completion status, and timeframe.
 
-  #### 🏷️ **Attributes**
+  ### 🏷️ **Attributes**
   - **`goal_id` (Primary Key)**:
     - A unique identifier for each goal.
     - Acts as the primary key for the `Goal` table.
@@ -222,11 +222,11 @@ The database flowchart provided critical insights into the relationships between
     - Links the goal to a specific category.
     - Cannot be `NULL`.
 
-  #### 🤝 **Relationships**
+  ### 🤝 **Relationships**
   - Each goal belongs to a single **user** (via the `user_id` foreign key).
   - Each goal belongs to a single **category** (via the `category_id` foreign key).
 
-  #### 🧩 **Representation (`__repr__`)**
+  ### 🧩 **Representation (`__repr__`)**
   - Returns a string representation of the `Goal` object, displaying attributes like `goal_id`, `goal_name`, `goal_description`, `goal_important`, and `goal_done`.
 
 </details>
@@ -241,13 +241,18 @@ The database flowchart provided critical insights into the relationships between
   <br>
   The relationships between the models establish a hierarchical structure for organizing data.
 
-  #### **User → Category (1:N Relationship)**
+  ### **User → Category (1:N Relationship)**
   - A user can create multiple categories.
   - The `categories` relationship in the `User` model links it to the `Category` model.
   - The `user_id` foreign key in the `Category` model establishes this link.
 
-  #### **Category → Goal (1:N Relationship)**
-  - A category can contain 
+  ### **Category → Goal (1:N Relationship)**
+  - A category can contain multiple goals.
+  - The `category_id` foreign key in the `Goal` model establishes this link.
+
+  ### **User → Goal (1:N Relationship)**
+  - A user can create multiple goals.
+  - The `user_id` foreign key in the `Goal` model establishes this link.
 
 </details>
 
@@ -255,8 +260,8 @@ The database flowchart provided critical insights into the relationships between
 ### 🔍 Summary of Model Relationships
 
   - **User → Category**:
-    - A user can have many categories.
-    - A category belongs to one user.
+  - A user can have many categories.
+  - A category belongs to one user.
 
   - **Category → Goal**:
     - A category can have many goals.
@@ -266,7 +271,7 @@ The database flowchart provided critical insights into the relationships between
     - A user can have many goals.
     - A goal belongs to one user.
 
-    This structure ensures clear organization of goals into categories while associating them with specific users. It maintains data integrity and scalability for managing multiple users and their respective goals and categories effectively.
+  This structure ensures clear organization of goals into categories while associating them with specific users. It maintains data integrity and scalability for managing multiple users and their respective goals and categories effectively.
 
 ---
 <br>
@@ -275,7 +280,9 @@ The database flowchart provided critical insights into the relationships between
 
 The app design embraces simplicity and functionality, ensuring an intuitive user experience. Transitions are smooth and visually appealing. The design leverages [**Bootstrap**](https://getbootstrap.com/) classes for consistent styling.
 
-![Alt text](color-palette-image "Color Palette")
+![Alt text](static/images/docs_imgs/color_palette.png "Color Palette")
+
+Color palette designed by [**Coolors**](https://coolors.co/)
 
 [Back to top](#contents)
 
@@ -356,19 +363,25 @@ The app design embraces simplicity and functionality, ensuring an intuitive user
     [Back to top](#contents)
 
   ## ⚒️ Manual Testing
-  - #### ⚙️ Testing the core functionality of the application.
 
-    | **Test**                 | **Action**                                                                                                      | **Expected Outcome**                                                                                     |
-    |--------------------------|------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-    | Homepage Load            | Navigate to `/` to check if the homepage loads properly.                                                        | The homepage should load without errors and display the `index.html` template.                          |
-    | User Registration        | Submit the registration form with valid and invalid data.                                                       | Valid data creates a new user; invalid data (e.g., mismatched passwords) shows an appropriate message.   |
-    | User Login               | Submit the login form with correct and incorrect credentials.                                                   | Correct credentials log the user in and redirect them to the dashboard; incorrect credentials display an error message. |
-    | User Logout              | Log in and then navigate to `/logout`.                                                                          | The user session is cleared, and the user is redirected to the login page.                              |
-    | Access Unauthorized Page | Attempt to access `/dashboard` without logging in.                                                              | User should be redirected to the login page with an appropriate error message.                          
-    [Back to top](#contents)
+<details>
+<summary>⚙️ Testing the core functionality of the application.</summary>
 
-- ### 👤 User Model Testing
-  #### Verify the `User` model behavior and constraints.
+<br>
+
+  | **Test**                 | **Action**                                                                                                      | **Expected Outcome**                                                                                     |
+  |--------------------------|------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+  | Homepage Load            | Navigate to `/` to check if the homepage loads properly.                                                        | The homepage should load without errors and display the `index.html` template.                          |
+  | User Registration        | Submit the registration form with valid and invalid data.                                                       | Valid data creates a new user; invalid data (e.g., mismatched passwords) shows an appropriate message.   |
+  | User Login               | Submit the login form with correct and incorrect credentials.                                                   | Correct credentials log the user in and redirect them to the dashboard; incorrect credentials display an error message. |
+  | User Logout              | Log in and then navigate to `/logout`.                                                                          | The user session is cleared, and the user is redirected to the login page.                              |
+  | Access Unauthorized Page | Attempt to access `/dashboard` without logging in.                                                              | User should be redirected to the login page with an appropriate error message.                          |
+  [Back to top](#contents)
+</details>
+<details>
+<summary>👤 User Model Testing - Verify the User model behavior and constraints.</summary>
+
+<br>
 
   | **Test**                  | **Action**                                                                                 | **Expected Outcome**                                                                                     |
   |---------------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -376,38 +389,46 @@ The app design embraces simplicity and functionality, ensuring an intuitive user
   | Password Validation       | Attempt to register with mismatched passwords.                                             | The registration should fail, and a message should inform the user about the mismatch.                   |
   | Password Hashing          | Check the database to ensure stored passwords are hashed.                                  | Passwords should be securely hashed and not stored in plain text.                                        |
   [Back to top](#contents)
+</details>
+<details>
+<summary>📂 Category Testing - Test the functionality of adding, editing, and deleting categories<</summary>
 
- - ### 📂 Category Testing
-    #### Test the functionality of adding, editing, and deleting categories.
+<br>
 
-    | **Test**                  | **Action**                                                                                 | **Expected Outcome**                                                                                     |
-    |---------------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-    | Add Category              | Submit the `add category` form with a valid category name and color.                       | The category is added to the database and displayed on the dashboard.                                    |
-    | Duplicate Category Name   | Attempt to add a category with a duplicate name for the same user.                         | The submission should fail with an error message.                                                        |
-    | Duplicate Category Color  | Attempt to add a category with a duplicate color for the same user.                        | The submission should fail with an error message.                                                        |
-    | Edit Category             | Modify an existing category and submit the form.                                           | The category details are updated in the database.                                                        |
-    | Delete Category           | Delete a category from the dashboard.                                                     | The category is removed from the database.                                                               |
-    | Add Category Without Login| Attempt to access `/add-category` without logging in.                                      | User is redirected to the login page.                                                                    |
-    [Back to top](#contents)
+  | **Test**                  | **Action**                                                                                 | **Expected Outcome**                                                                                     |
+  |---------------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+  | Add Category              | Submit the `add category` form with a valid category name and color.                       | The category is added to the database and displayed on the dashboard.                                    |
+  | Duplicate Category Name   | Attempt to add a category with a duplicate name for the same user.                         | The submission should fail with an error message.                                                        |
+  | Duplicate Category Color  | Attempt to add a category with a duplicate color for the same user.                        | The submission should fail with an error message.                                                        |
+  | Edit Category             | Modify an existing category and submit the form.                                           | The category details are updated in the database.                                                        |
+  | Delete Category           | Delete a category from the dashboard.                                                     | The category is removed from the database.                                                               |
+  | Add Category Without Login| Attempt to access `/add-category` without logging in.                                      | User is redirected to the login page.                                                                    |
 
-- ### 🎯 Goal Testing
-    #### Test the functionality of managing goals.
+  [Back to top](#contents)
+</details>
+<details>
+<summary>🎯 Goal Testing - Test the functionality of managing goals</summary>
 
-    | **Test**                  | **Action**                                                                                 | **Expected Outcome**                                                                                     |
-    |---------------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-    | Add Goal                  | Submit the `add goal` form with valid data.                                                | The goal is added to the database and displayed in the corresponding category on the dashboard.          |
-    | Duplicate Goal Name       | Attempt to add a goal with a duplicate name under the same category and timeframe.          | The submission should fail with an error message.                                                        |
-    | Invalid Timeframe Selection | Submit the `add goal` form with an invalid timeframe.                                    | The submission should fail with an error message.                                                        |
-    | Edit Goal                 | Modify an existing goal's details and submit the form.                                     | The goal details are updated in the database.                                                            |
-    | Delete Goal               | Delete a goal from the dashboard.                                                          | The goal is removed from the database.                                                                   |
-    | Mark Goal as Done         | Toggle the `done` status of a goal.                                                        | The goal's status is updated, and the changes are reflected on the dashboard.                            |
-    | Mark Goal as Important    | Toggle the `important` status of a goal.                                                   | The goal's importance is updated, and the changes are reflected on the dashboard.                        |
-    | Add Goal Without Category | Submit the `add goal` form without selecting a category.                                   | The submission should fail with an error message.                                                        |
-    | Add Goal Without Login    | Attempt to access `/add-goal` without logging in.                                          | User is redirected to the login page.                                                                    |
-    [Back to top](#contents)
+<br>
 
-- ### 🔒 Authorization Testing
-  #### Ensure the application enforces proper authorization for restricted actions.
+  | **Test**                  | **Action**                                                                                 | **Expected Outcome**                                                                                     |
+  |---------------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+  | Add Goal                  | Submit the `add goal` form with valid data.                                                | The goal is added to the database and displayed in the corresponding category on the dashboard.          |
+  | Duplicate Goal Name       | Attempt to add a goal with a duplicate name under the same category and timeframe.          | The submission should fail with an error message.                                                        |
+  | Invalid Timeframe Selection | Submit the `add goal` form with an invalid timeframe.                                    | The submission should fail with an error message.                                                        |
+  | Edit Goal                 | Modify an existing goal's details and submit the form.                                     | The goal details are updated in the database.                                                            |
+  | Delete Goal               | Delete a goal from the dashboard.                                                          | The goal is removed from the database.                                                                   |
+  | Mark Goal as Done         | Toggle the `done` status of a goal.                                                        | The goal's status is updated, and the changes are reflected on the dashboard.                            |
+  | Mark Goal as Important    | Toggle the `important` status of a goal.                                                   | The goal's importance is updated, and the changes are reflected on the dashboard.                        |
+  | Add Goal Without Category | Submit the `add goal` form without selecting a category.                                   | The submission should fail with an error message.                                                        |
+  | Add Goal Without Login    | Attempt to access `/add-goal` without logging in.                                          | User is redirected to the login page.                                                                    |
+
+  [Back to top](#contents)
+</details>
+<details>
+<summary>🔒 Authorization Testing - Ensure the application enforces proper authorization for restricted actions</summary>
+
+<br>
 
   | **Test**                  | **Action**                                                                                 | **Expected Outcome**                                                                                     |
   |---------------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -416,18 +437,24 @@ The app design embraces simplicity and functionality, ensuring an intuitive user
   | Delete Category by Non-Owner | Attempt to delete a category that belongs to another user.                               | The user is shown an error message or redirected to the dashboard.                                       |
   | Edit Goal by Non-Owner    | Attempt to edit a goal that belongs to another user.                                        | The user is shown an error message or redirected to the dashboard.                                       |
   | Delete Goal by Non-Owner  | Attempt to delete a goal that belongs to another user.                                      | The user is shown an error message or redirected to the dashboard.                                       |
+
   [Back to top](#contents)
+</details>
+<details>
+<summary>📱 Responsiveness Testing - Ensure the app is responsive across devices</summary>
 
+<br>
 
- - ### 📱 Responsiveness Testing
-    #### Ensure the app is responsive across devices.
+| **Test**                  | **Action**                                                                                 | **Expected Outcome**                                                                                     |
+|---------------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Mobile Layout             | View the application on various screen sizes using browser developer tools.                | The layout adjusts appropriately, with no overlapping elements or content cut off.                       |
+| Tablet Layout             | Test the application on a tablet-sized viewport.                                           | The layout adjusts appropriately for medium-sized screens.                                               |
+| Large Screen Layout       | Test the application on a desktop or large screen.                                         | The layout adapts and utilizes available screen space efficiently.                                       |
 
-    | **Test**                  | **Action**                                                                                 | **Expected Outcome**                                                                                     |
-    |---------------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-    | Mobile Layout             | View the application on various screen sizes using browser developer tools.                | The layout adjusts appropriately, with no overlapping elements or content cut off.                       |
-    | Tablet Layout             | Test the application on a tablet-sized viewport.                                           | The layout adjusts appropriately for medium-sized screens.                                               |
-    | Large Screen Layout       | Test the application on a desktop or large screen.                                         | The layout adapts and utilizes available screen space efficiently.                                   
-    [Back to top](#contents)
+[Back to top](#contents)
+</details>
+
+---
 
 
 ## 🪲 Bugs and Issues
@@ -508,6 +535,50 @@ While developing, some sensitive keys were accidentally pushed to GitHub. Howeve
 
   [Back to top](#contents)
 
+
+# 💻Technologies Used
+I used the following technologies, platforms and support in building my project:
+- The application was built in Python.
+- [**edX**](https://www.edx.org/) modules/lessons aided my learning and many of the concepts learned were applied in this project.
+- [**Harvard Online**](https://pll.harvard.edu/course/cs50-introduction-computer-science) lectures, shorts, problems set founded knowledge to develop the project.
+- [**GitHub**](https://github.com/Cesargarciajr/) was used for the project repository and version control
+- [**Visual Studio Code**](https://code.visualstudio.com/) - for IDE and editor of the code.
+- [**Flask**](https://flask.palletsprojects.com/en/stable/) - framework to develop the app.
+- [**Bootstrap**](https://getbootstrap.com/) - for design and choices.
+- [**Coolors**](https://coolors.co/) - design color palette.
+- [**Font Awesome**](https://fontawesome.com/) - for icons selections
+- [**Heroku**](https://www.heroku.com/platform) - was used for application deployment.
+- [**Elephant SQL**](https://www.elephantsql.com/) - for database.
+- [**ScreenToGif**](https://www.screentogif.com/) - generate HERO gif of the readme file
+- [**Db Diagram**](https://dbdiagram.io/) - flowchart used on readme file.
+- [**CS50 AI**](https://cs50.ai/) - helped me better understand concepts and solve many issues as a tutor
+- [**Chat GPT**](https://chatgpt.com/) - generate text, correct grammar errors
+
+[Back to top](<#contents>)
+
+# 🎖️Credits
+
+  ### 🖋️ Content  
+  - [**David J Malan**](https://www.linkedin.com/in/malan/)  - CS50 Professor
+  - [**Harvard Online**](https://pll.harvard.edu/course/cs50-introduction-computer-science) lectures, shorts, problems set founded knowledge to develop the project.
+  - [**edX**](https://www.edx.org/) modules/lessons aided my learning and many of the concepts learned were applied in this project.
+  - [**W3 Schools**](https://www.w3schools.com/) - used for multiples researches and tutorials in HTML and CSS.
+  - [**Stack Overflow**](https://stackoverflow.com) - used to clarify questions and collect answers.
+  - [**Real Python**](https://realpython.com/python-pep8) - Also provide with clarity the solutions
+  - [**CS50 AI**](https://cs50.ai/) - helped me better understand concepts and solve many issues as a tutor
+  - [**Chat GPT**](https://chatgpt.com/) - generate text, correct grammar errors
+
+ 
+[Back to top](<#contents>)
+
+  ### 📸 Media
+- [**Db Diagram**](https://dbdiagram.io/) - flowchart used on readme file.
+- [**Bootstrap**](https://getbootstrap.com/) - for design and choices.
+- [**Coolors**](https://coolors.co/) - design color palette.
+- [**Font Awesome**](https://fontawesome.com/) - for icons selections
+- [**ScreenToGif**](https://www.screentogif.com/) - generate HERO gif of the readme file
+
+[Back to top](<#contents>)
 
 ---
 
