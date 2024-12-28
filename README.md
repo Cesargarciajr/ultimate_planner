@@ -291,14 +291,20 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 ---
 
 # 📐 Wireframes
+
+  Wireframes were an essential tool in visualizing the application's layout and served as a comprehensive guide throughout the design process. Utilizing [**Balsamiq**](https://balsamiq.com/), I developed detailed wireframes to map out the structure and functionality of the application's elements, ensuring a clear and user-friendly design.
+
   - **Landing Page**:
-    ![Alt text](landing-page-wf-image "landing-wf page image")
+
+    ![Alt text](static/images/docs_imgs/landing-wf.png "landing-wf page image")
 
   - **Dashboard**:
-    ![Alt text](dashboard-wf-image "dashboard-wf image")
 
-  - **Add/Edit Category/Goal**:
-    ![Alt text](add-wf-image "addwf image")
+    ![Alt text](static/images/docs_imgs/dashboard-wf.png "dashboard-wf image")
+
+  - **Add/Edit Category/Goal (forms)**:
+
+    ![Alt text](static/images/docs_imgs/form-wf.png "form-wf image")
 
 
       [Back to top](#📚-contents)
