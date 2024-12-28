@@ -19,34 +19,34 @@ The Ultimate Planner was developed as my **Final Project** for the **`CS50x 2024
 
 # 📚 Contents
 
-- [📚 Contents](#contents)
-  - [✨ User Experience (UX)](#user-experience-ux)
-    - [📜 User Stories](#user-stories)
-    - [🛠️ Agile Methodologies](#agile-methodologies-with-github-kanban)
-    - [🗃️ Database Flowchart](#database-flowchart)
-    - [🎨 Design Choices](#design-choices)
-    - [📐 Wireframes](#wireframes)
-  - [🌟 Features](#features)
-    - [🏠 Landing Page](#landing-page)
-    - [📝 Register](#register-page)
-    - [🔑 Log In](#login-page)
-    - [📊 Dashboard](#dashboard-page)
-    - [➕ Add Category](#add-category-page)
-    - [🖊️ Edit Category](#edit-category-page)
-    - [🎯 Add Goal](#add-goal-page)
-    - [✏️ Edit Goal](#edit-goal-page)
-    - [🚀 Future Features](#future-features)
-  - [📢 Marketing Strategies](#marketing-strategies)
-  - [🧪 Testing](#testing)
-    - [🛰️ Overview](#️overview)
-    - [⚒️ Manual Testing](#maunal-testing)
-    - [🪲 Bugs and Issues](#bugs-and-issues)
-  - [🌐 Deployment](#deployment)
-  - [💻 Technologies Used](#technologies-used)
-  - [🎖️ Credits](#credits)
-    - [🖋️ Content](#content)
-    - [📸 Media](#media)
-  - [🙏 Acknowledgments](#acknowledgments)
+- [📚 Contents](#📚-contents)
+  - [✨ User Experience (UX)](#✨-user-experience-ux)
+    - [📜 User Stories](#📜-user-stories)
+    - [🛠️ Agile Methodologies](#🛠️-agile-methodologies-with-github-kanban)
+    - [🗃️ Database Flowchart](#🗃️-database-flowchart)
+    - [🎨 Design Choices](#🎨-design-choices)
+    - [📐 Wireframes](#📐-wireframes)
+  - [🌟 Features](#🌟-features)
+    - [🏠 Landing Page](#🏠-landing-page)
+    - [📝 Register](#📝-register-page)
+    - [🔑 Log In](#🔑-login-page)
+    - [📊 Dashboard](#📊-dashboard-page)
+    - [➕ Add Category](#➕-add-category-page)
+    - [🖊️ Edit Category](#🖊️-edit-category-page)
+    - [🎯 Add Goal](#🎯-add-goal-page)
+    - [✏️ Edit Goal](#✏️-edit-goal-page)
+    - [🚀 Future Features](#🚀-future-features)
+  - [📢 Marketing Strategies](#📢-marketing-strategies)
+  - [🧪 Testing](#🧪-testing)
+    - [🛰️ Overview](#️🛰️-Overview)
+    - [⚒️ Manual Testing](#⚒️-manual-testing)
+    - [🪲 Bugs and Issues](#🪲-bugs-and-issues)
+  - [🌐 Deployment](#🌐-deployment)
+  - [💻 Technologies Used](#💻-technologies-used)
+  - [🎖️ Credits](#🎖️-credits)
+    - [🖋️ Content](#🖋️-content)
+    - [📸 Media](#📸-media)
+  - [🙏 Acknowledgments](#🙏-acknowledgments)
 
 
 ___
@@ -78,7 +78,7 @@ ___
   #### <u>Epic: Onboarding and Guidance</u>
   12. **As a new user,** I want a simple and friendly introduction to the app so that I can quickly understand how to use it.
 
-  [Back to top](#contents)
+  [Back to top](#📚-contents)
 
 
 # 🕹️ Agile Methodologies with GitHub Kanban
@@ -87,7 +87,7 @@ GitHub Project Boards and Kanban methodology were employed to manage tasks effic
 
 ![Alt text](static/images/docs_imgs/kanban.png "Kanban Board Example")
 
-[Back to top](#contents)
+[Back to top](#📚-contents)
 
 
 # 🗃️ Database Flowchart
@@ -273,6 +273,8 @@ The database flowchart provided critical insights into the relationships between
 
   This structure ensures clear organization of goals into categories while associating them with specific users. It maintains data integrity and scalability for managing multiple users and their respective goals and categories effectively.
 
+[Back to top](#📚-contents)
+
 ---
 <br>
 
@@ -284,7 +286,7 @@ The app design embraces simplicity and functionality, ensuring an intuitive user
 
 Color palette designed by [**Coolors**](https://coolors.co/)
 
-[Back to top](#contents)
+[Back to top](#📚-contents)
 
 ---
 
@@ -299,7 +301,7 @@ Color palette designed by [**Coolors**](https://coolors.co/)
     ![Alt text](add-wf-image "addwf image")
 
 
-      [Back to top](#contents)
+      [Back to top](#📚-contents)
 ---
 
 # 🌟 Features
@@ -349,7 +351,7 @@ Color palette designed by [**Coolors**](https://coolors.co/)
     ![Alt text](static/images/docs_imgs/landing_footer.png "landing-page image")
 
 
-    [Back to top](#contents)
+    [Back to top](#📚-contents)
 
   - #### 📝 **Register Page**
       The **Register Page** includes the **navbar** and **footer**, as previously detailed in the [Landing Page](#landing-page) section of this documentation.
@@ -371,7 +373,7 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 
   ![Alt text](static/images/docs_imgs/register.png "register-page image")
       
-  [Back to top](#contents)
+  [Back to top](#📚-contents)
 
   - #### 🔑 **Login Page**
     The **Login Page** incorporates the **navbar** and **footer** features, as previously detailed in the [Landing Page](#landing-page) section of this documentation.
@@ -386,7 +388,7 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 
     ![Alt text](static/images/docs_imgs/login.png "login-page image")
       
-    [Back to top](#contents)
+    [Back to top](#📚-contents)
 
   - #### 📊 **Dashboard Page**
     The **Dashboard Page** is accessible only to logged-in users and provides a personalized and welcoming environment. 
@@ -438,7 +440,7 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 
     ![Alt text](static/images/docs_imgs/dashboard.png "dashboard-page image")
       
-    [Back to top](#contents)
+    [Back to top](#📚-contents)
 
   - #### ➕  **Add Category Page**
     The **Add Category Page** provides a simple and intuitive interface for creating new categories, ensuring a smooth user experience. Below is a detailed overview of its features:
@@ -467,7 +469,7 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 
     ![Alt text](/static/images/docs_imgs/add_category.png "add-category-page image")
       
-    [Back to top](#contents)
+    [Back to top](#📚-contents)
 
   - #### 🖊️ **Edit Category Page**
     The **Edit Category Page** allows users to modify their existing categories easily and intuitively. Below are the key functionalities and features of this page:
@@ -500,7 +502,7 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 
     ![Alt text](static/images/docs_imgs/edit_category.png "edit-category-page image")
       
-    [Back to top](#contents)
+    [Back to top](#📚-contents)
 
   - #### 🎯 **Add Goal Page**
 
@@ -537,7 +539,7 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 
     ![Alt text](static/images/docs_imgs/add_goal.png "add-goal-page image")
       
-    [Back to top](#contents)
+    [Back to top](#📚-contents)
 
   - #### ✏️ **Edit Goal Page**
 
@@ -567,7 +569,7 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 
     ![Alt text](static/images/docs_imgs/edit_goal.png "edit-goal-page image")
       
-    [Back to top](#contents)
+    [Back to top](#📚-contents)
 
   ### 🚀 **Future Features**
 
@@ -595,24 +597,43 @@ Color palette designed by [**Coolors**](https://coolors.co/)
 
 These features aim to enhance the application's usability and value, ensuring that users have the tools and resources to reach their goals effectively and stay engaged with their plans.
       
-  [Back to top](#contents)
+  [Back to top](#📚-contents)
 <br>
 <br>
 
+# 📢 Marketing Strategies
+
+  ### Meta-tags
+  Utilizing well-optimized meta-tags to improve search engine visibility. This includes meaningful titles, descriptions, and keywords tailored to the app’s target audience, ensuring the web app ranks better on search engine results pages.
+
+  ![Alt text](static/images/docs_imgs/meta-tags.png "meta-tags image")
+  ### Robots.txt
+  Implementing a robots.txt file to guide web crawlers effectively. This ensures search engines index the relevant pages while preventing access to unnecessary or sensitive areas of the site.
+
+  ![Alt text](static/images/docs_imgs/robots.png "robots.txt image")
+
+  ### Sitemap.xml
+  Creating and maintaining a sitemap.xml file to provide search engines with a clear and structured map of the website. This improves the discoverability of all key pages, ensuring nothing important is missed during indexing.
+  
+  [**Sitemap Genarator link**](https://www.xml-sitemaps.com/)
+
+  [Back to top](#📚-contents)
+
+  ### 
 # 🧪 Testing
-  ### 🛰️ Overview
+  ## 🛰️ Overview
 
   - The application was tested for responsiveness across various devices and screen sizes (refer to section: [Responsiveness Testing](#-responsiveness-testing)).
-  - All HTML files were validated using the W3C Validator with no significant errors.
-    - NOTE: Errors related to custom attributes or framework-specific tags (like Bootstrap, Flask templates, etc.) were ignored after review and deemed non-critical.
-  - All Python code was checked using Flake8 for PEP8 compliance, ensuring clean and readable code.
-  - The website was tested on major browsers including Chrome, Firefox, Safari, and Edge for consistent behavior.
-  - All user flows were tested in-depth, including registration, login, dashboard navigation, goal and category creation, and form submissions.
-  - Form validation was thoroughly tested to ensure error messages are displayed for invalid inputs and only valid data is accepted.
-  - Lighthouse was used to test for Performance, Accessibility, Best Practices, and SEO, with improvements made to enhance scores where necessary.
-  - WAVE was utilized to test for accessibility issues, and adjustments were made to improve usability for users with assistive technologies.
+   - All HTML files were validated using the W3C Validator with no significant errors.
+     - NOTE: Errors related to custom attributes or framework-specific tags (like Bootstrap, Flask templates, etc.) were ignored after review and deemed non-critical.
+   - All Python code was checked using Flake8 for PEP8 compliance, ensuring clean and readable code.
+   - The website was tested on major browsers including Chrome, Firefox, Safari, and Edge for consistent behavior.
+   - All user flows were tested in-depth, including registration, login, dashboard navigation, goal and category creation, and form submissions.
+   - Form validation was thoroughly tested to ensure error messages are displayed for invalid inputs and only valid data is accepted.
+   - Lighthouse was used to test for Performance, Accessibility, Best Practices, and SEO, with improvements made to enhance scores where necessary.
+   - WAVE was utilized to test for accessibility issues, and adjustments were made to improve usability for users with assistive technologies.
   
-  [Back to top](#contents)
+  [Back to top](#📚-contents)
 
   ## ⚒️ Manual Testing
 
@@ -629,7 +650,8 @@ These features aim to enhance the application's usability and value, ensuring th
   | User Logout              | Log in and then navigate to `/logout`.                                                                          | The user session is cleared, and the user is redirected to the login page.                              |
   | Access Unauthorized Page | Attempt to access `/dashboard` without logging in.                                                              | User should be redirected to the login page with an appropriate error message.                          |
 
-  [Back to top](#contents)
+  
+[Back to top](#📚-contents)
 
 </details>
 <details>
@@ -642,7 +664,9 @@ These features aim to enhance the application's usability and value, ensuring th
   | Unique Username           | Attempt to register two users with the same username.                                      | The second attempt should fail with an appropriate error message.                                        |
   | Password Validation       | Attempt to register with mismatched passwords.                                             | The registration should fail, and a message should inform the user about the mismatch.                   |
   | Password Hashing          | Check the database to ensure stored passwords are hashed.                                  | Passwords should be securely hashed and not stored in plain text.                                        |
-  [Back to top](#contents)
+  
+  [Back to top](#📚-contents)
+
 </details>
 <details>
 <summary>📂 Category Testing - Test the functionality of adding, editing, and deleting categories<</summary>
@@ -658,7 +682,7 @@ These features aim to enhance the application's usability and value, ensuring th
   | Delete Category           | Delete a category from the dashboard.                                                     | The category is removed from the database.                                                               |
   | Add Category Without Login| Attempt to access `/add-category` without logging in.                                      | User is redirected to the login page.                                                                    |
 
-  [Back to top](#contents)
+  [Back to top](#📚-contents)
 </details>
 <details>
 <summary>🎯 Goal Testing - Test the functionality of managing goals</summary>
@@ -677,7 +701,7 @@ These features aim to enhance the application's usability and value, ensuring th
   | Add Goal Without Category | Submit the `add goal` form without selecting a category.                                   | The submission should fail with an error message.                                                        |
   | Add Goal Without Login    | Attempt to access `/add-goal` without logging in.                                          | User is redirected to the login page.                                                                    |
 
-  [Back to top](#contents)
+  [Back to top](#📚-contents)
 </details>
 <details>
 <summary>🔒 Authorization Testing - Ensure the application enforces proper authorization for restricted actions</summary>
@@ -692,7 +716,7 @@ These features aim to enhance the application's usability and value, ensuring th
   | Edit Goal by Non-Owner    | Attempt to edit a goal that belongs to another user.                                        | The user is shown an error message or redirected to the dashboard.                                       |
   | Delete Goal by Non-Owner  | Attempt to delete a goal that belongs to another user.                                      | The user is shown an error message or redirected to the dashboard.                                       |
 
-  [Back to top](#contents)
+  [Back to top](#📚-contents)
 </details>
 <details>
 <summary>📱 Responsiveness Testing - Ensure the app is responsive across devices</summary>
@@ -705,8 +729,11 @@ These features aim to enhance the application's usability and value, ensuring th
 | Tablet Layout             | Test the application on a tablet-sized viewport.                                           | The layout adjusts appropriately for medium-sized screens.                                               |
 | Large Screen Layout       | Test the application on a desktop or large screen.                                         | The layout adapts and utilizes available screen space efficiently.                                       |
 
-[Back to top](#contents)
+[Back to top](#📚-contents)
 </details>
+<br>
+
+[Back to top](#📚-contents)
 
   ### 🗼Google Lighthouse Tests
 
@@ -744,23 +771,31 @@ These features aim to enhance the application's usability and value, ensuring th
   <summary> Dashboard Page</summary>
     <img src="static/images/docs_imgs/lighthouse_dashboard.png" alt="lighhouse_report">
   </details>
+
+<br>
+
+[Back to top](#📚-contents)
+
 ---
 
 
 ## 🪲 Bugs and Issues
 While developing, some sensitive keys were accidentally pushed to GitHub. However, they were promptly regenerated and securely added as environment variables on the Heroku platform. Any other bugs were troubleshooted and addressed while developing the application.
 
+[Back to top](#📚-contents)
+
 ## 🛡️ Code Validation
 - **HTML:** Checked via [W3C Validator](https://validator.w3.org/). Reports below:
 <br>
-  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2F" target="_blank">**Landing Page**</a>
-  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fregister" target="_blank">**Register Page**</a>
-  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Flogin" target="_blank">**Login Page**</a>
-  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-category" target="_blank">**Add Category Page**</a>
-  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fedit-category%2F11" target="_blank">**Edit Category Page**</a>
-  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-goal" target="_blank">**Add Goal Page**</a>
-  - <a href="https://ultimate-planner-c321a2415a86.herokuapp.com/edit-goal/23" target="_blank">**Edit Goal Page**</a>
-  - <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fdashboard" target="_blank">**Dashboard Page**</a>
+  - [**Landing Page**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2F)
+  - [**Register Page**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fregister)
+  - [**Login Page**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Flogin)
+  - [**Add Category Page**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-category)
+  - [**Edit Category Page**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fedit-category%2F11)
+  - [**Add Goal Page**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-goal)
+  - [**Edit Goal Page**](https://ultimate-planner-c321a2415a86.herokuapp.com/edit-goal/23)
+  - [**Dashboard Page**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fdashboard)
+
 
   A recurring issue was identified where a `<div>` was used in place of a `<li>` element. However, this is not a critical issue and does not affect performance. The design is based on the Bootstrap navbar template.
 
@@ -770,18 +805,19 @@ While developing, some sensitive keys were accidentally pushed to GitHub. Howeve
 
 - **CSS:** Validated using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).Reports below:
 <br>
-  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en">**Landing Page**</a>
-  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fregister&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Register Page**</a>
-  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Flogin&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Login Page**</a>
-  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-category&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Add Category Page**</a>
-  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fedit-category%2F11&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Edit Category Page**</a>
-  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-goal&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Add Goal Page**</a>
-  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fedit-goal%2F23&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Edit Goal Page**</a>
-  - <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fdashboard&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">**Dashboard Page**</a>
+  - [**Landing Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [**Register Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fregister&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [**Login Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Flogin&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [**Add Category Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-category&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [**Edit Category Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fedit-category%2F11&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [**Add Goal Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-goal&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [**Edit Goal Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fedit-goal%2F23&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [**Dashboard Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fdashboard&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
 
 - **Python:** linting was conducted using Flake8, with no significant issues identified apart from a few instances of lines exceeding the recommended length
 
-[Back to top](#contents)
+[Back to top](#📚-contents)
 
 
 # 🌐 Deployment
@@ -830,26 +866,26 @@ While developing, some sensitive keys were accidentally pushed to GitHub. Howeve
   8. Once the deployment is complete, click "Open App" to access your live application.
 
 
-  ### 📐 Environment Variables
-    #### 📌 Local Environment:
-    - Create a `.env` file in the root directory of the project and add the following environment variables:
-        - **`DATABASE_URL`**: The URL for your PostgreSQL database.
-        - **`SECRET_KEY`**: A random, secure secret key for the application.
+  ### 📦 Environment Variables
+  #### 📌 Local Environment:
+   - Create a `.env` file in the root directory of the project and add the following environment variables:
+       - **`DATABASE_URL`**: The URL for your PostgreSQL database.
+       - **`SECRET_KEY`**: A random, secure secret key for the application.
 
-    #### 💜 Heroku Environment:
-    - Set the environment variables through the Heroku dashboard under "Config Vars" in the "Settings" tab:
-        - **`PORT`**: 8000  
-        - **`DATABASE_URL`**: The PostgreSQL database URL provided by the Heroku PostgreSQL add-on.  
-        - **`SECRET_KEY`**: The secret key for your application.
+  #### 💜 Heroku Environment:
+  - Set the environment variables through the Heroku dashboard under "Config Vars" in the "Settings" tab:
+      - **`PORT`**: 8000  
+      - **`DATABASE_URL`**: The PostgreSQL database URL provided by the Heroku PostgreSQL add-on.  
+      - **`SECRET_KEY`**: The secret key for your application.
 
-    #### 🖇️ GitHub Pages Deployment
-    1. Create a repository on GitHub if you haven’t already.
-    2. Commit your code and push it to the GitHub repository.
-    3. Navigate to the "Settings" tab of your repository.
-    4. Scroll down to the "Pages" section and select a branch (usually `main`) and the root folder for deployment.
-    5. Save the changes, and GitHub Pages will generate a link to access your application.
+   #### 🖇️ GitHub Pages Deployment
+   1. Create a repository on GitHub if you haven’t already.
+   2. Commit your code and push it to the GitHub repository.
+   3. Navigate to the "Settings" tab of your repository.
+   4. Scroll down to the "Pages" section and select a branch (usually `main`) and the root folder for deployment.
+   5. Save the changes, and GitHub Pages will generate a link to access your application.
 
-  [Back to top](#contents)
+  [Back to top](#📚-contents)
 
 
 # 💻Technologies Used
@@ -871,7 +907,8 @@ I used the following technologies, platforms and support in building my project:
 - [**CS50 AI**](https://cs50.ai/) - helped me better understand concepts and solve many issues as a tutor
 - [**Chat GPT**](https://chatgpt.com/) - generate text, correct grammar errors
 
-[Back to top](<#contents>)
+[Back to top](#📚-contents)
+
 
 # 🎖️Credits
 
@@ -886,7 +923,8 @@ I used the following technologies, platforms and support in building my project:
   - [**Chat GPT**](https://chatgpt.com/) - generate text, correct grammar errors
 
  
-[Back to top](<#contents>)
+[Back to top](#📚-contents)
+
 
   ### 📸 Media
 - [**Db Diagram**](https://dbdiagram.io/) - flowchart used on readme file.
@@ -895,23 +933,21 @@ I used the following technologies, platforms and support in building my project:
 - [**Font Awesome**](https://fontawesome.com/) - for icons selections
 - [**ScreenToGif**](https://www.screentogif.com/) - generate HERO gif of the readme file
 
-[Back to top](<#contents>)
+[Back to top](#📚-contents)
+
 
 ---
 
 # 🙏 Acknowledgments
 
-## Acknowledgments
+  I would like to express my heartfelt gratitude to the entire **CS50 team**, especially **David J. Malan**, for their incredible dedication and passion for teaching. This project is a culmination of everything I have learned so far in the course, and it reflects the invaluable lessons and skills imparted throughout.
 
-I would like to express my heartfelt gratitude to the entire **CS50 team**, especially **David J. Malan**, for their incredible dedication and passion for teaching. This project is a culmination of everything I have learned so far in the course, and it reflects the invaluable lessons and skills imparted throughout.
+  A special thanks to **Harvard University**, **Harvard Online**, and **edX** for making this transformative learning experience accessible. The journey through this project challenged me to think critically, solve problems creatively, and deepen my understanding of web programming with Python.
 
-A special thanks to **Harvard University**, **Harvard Online**, and **edX** for making this transformative learning experience accessible. The journey through this project challenged me to think critically, solve problems creatively, and deepen my understanding of web programming with Python.
+  This project not only allowed me to apply my knowledge but also gave me the opportunity to explore designing and building a project from scratch, further solidifying my learning and appreciation for the art of programming.
 
-This project not only allowed me to apply my knowledge but also gave me the opportunity to explore designing and building a project from scratch, further solidifying my learning and appreciation for the art of programming.
+  By [**Cesar Garcia**](https://github.com/Cesargarciajr) 
+  
+  # <a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank"><img src="static/images/docs_imgs/harvard_logo.png" heigth="50" width="100" alt="Havard Online"></a> THANK YOU!
 
-By [**Cesar Garcia**](https://github.com/Cesargarciajr)
-
-
-# <a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank"><img src="static/images/docs_imgs/harvard_logo.png" heigth="50" width="100" alt="Havard Online"></a> THANK YOU!
-
-[Back to top](#contents)
+[Back to top](#📚-contents)

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ultimate-planner-c321a2415a86.herokuapp.com/sitemap.xml
