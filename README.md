@@ -787,6 +787,7 @@ While developing, some sensitive keys were accidentally pushed to GitHub. Howeve
 ## 🛡️ Code Validation
 - **HTML:** Checked via [W3C Validator](https://validator.w3.org/). Reports below:
 <br>
+
   - [**Landing Page**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2F)
   - [**Register Page**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fregister)
   - [**Login Page**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Flogin)
@@ -805,8 +806,10 @@ While developing, some sensitive keys were accidentally pushed to GitHub. Howeve
 
 - **CSS:** Validated using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).Reports below:
 <br>
+
   - [**Landing Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
   - [**Register Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fregister&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
   - [**Login Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Flogin&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
   - [**Add Category Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fadd-category&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
   - [**Edit Category Page**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fultimate-planner-c321a2415a86.herokuapp.com%2Fedit-category%2F11&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
